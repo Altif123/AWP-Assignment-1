@@ -6,7 +6,7 @@
         <div class="w-full">
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
-                <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="font-semibold bg-blue-200 text-black-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     {{ __('Register') }}
                 </header>
 
@@ -15,7 +15,7 @@
                     @csrf
 
                     <div class="flex flex-wrap">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="name" class="block text-red-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Name') }}:
                         </label>
 
@@ -31,7 +31,7 @@
 
                     <div class="flex flex-wrap">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('E-Mail Address') }}:
+                            {{ __('E-Mail Address please') }}:
                         </label>
 
                         <input id="email" type="email"
@@ -39,7 +39,7 @@
                             value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
-                        <p class="text-red-500 text-xs italic mt-4">
+                        <p class="text-green-500 text-xs italic mt-4">
                             {{ $message }}
                         </p>
                         @enderror
