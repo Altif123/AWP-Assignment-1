@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -14,7 +15,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menu = App\Models\Menu::all();
     }
 
     /**
@@ -24,7 +25,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('menu.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dump($request ->all());
+        //die('this works????');
+        $menu = new Menu();
+        $menu-> dish_name =request('dish_name');
+        $menu-> description =request('description');
+        $menu-> amount =request('amount');
+        $menu ->save();
+
+       // return redirect('/menu');
     }
 
     /**
