@@ -23,7 +23,7 @@
 
                         <input id="dish_name" type="text" class="form-input w-full @error('name')  border-red-500 @enderror"
                                name="dish_name" value="{{ old('dish_name') }}" required autocomplete="dish_name" autofocus
-                               placeholder=" E.G Dish Name">
+                               placeholder=" E.G PERI chicken">
 
                         @error('dish_name')
                         <p class="text-red-500 text-xs italic mt-4">

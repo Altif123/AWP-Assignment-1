@@ -12,16 +12,18 @@
             <h1 class="mb-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Menu
             </h1>
-            {{--@foreach($menu as $item)--}}
+            @foreach($menu as $item)
             <div class="px-2">
                 <div class="flex -mx-2">
+
                     <div class="w-1/3 px-2">
+                        {{$item}}
                         <div class="bg-gray-400 h-12"></div>
-                        {{--{{$item}}--}}
+
                     </div>
                 </div>
             </div>
-            {{--@endforeach--}}
+            @endforeach
         </div>
     </main>
 @endsection

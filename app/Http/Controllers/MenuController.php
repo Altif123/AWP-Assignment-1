@@ -9,13 +9,15 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the all the records in the DB.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $menu = App\Models\Menu::all();
+        $showall = Menu::all();
+
+        return view('menu/index',['menu' => $showall]);
     }
 
     /**
@@ -36,15 +38,19 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        dump($request ->all());
-        //die('this works????');
+        $request->validate([
+            'dish_name' => ['required', 'max:200'],
+            'description' => ['required'],
+            'amount' => ['required', 'max:5','min:5'],
+        ]);
+
         $menu = new Menu();
         $menu-> dish_name =request('dish_name');
         $menu-> description =request('description');
         $menu-> amount =request('amount');
         $menu ->save();
 
-       // return redirect('/menu');
+       return redirect('menu/index');
     }
 
     /**
