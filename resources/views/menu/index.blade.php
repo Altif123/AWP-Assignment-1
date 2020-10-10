@@ -17,9 +17,14 @@
                 <div class="flex -mx-2">
 
                     <div class="w-1/3 px-2">
-                        {{$item}}
-                        <div class="bg-gray-400 h-12"></div>
+                        <a href="/menu/{{ $item -> id }}"> <h2>{{$item->dish_name}} </h2> </a>
+                        <div class="bg-gray-400 h-18">
 
+                            <p> {{$item->description}} </p>
+                            <p> £ {{$item->amount}} </p>
+
+                        </div>
+                        <br><br>
                     </div>
                 </div>
             </div>

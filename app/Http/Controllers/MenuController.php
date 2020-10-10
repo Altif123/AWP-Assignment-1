@@ -59,9 +59,11 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(MenuController $menu)
+    public function show($id)
     {
-        //
+        $menuItem = Menu::find($id);
+
+        return view('menu.show', ['menuitem'=> $menuItem]);
     }
 
     /**

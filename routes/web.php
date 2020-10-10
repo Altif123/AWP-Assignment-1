@@ -37,6 +37,8 @@ Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create']
 //post request for the menu/create page which stores form data
 Route::post('menu/create', [App\Http\Controllers\MenuController::class, 'store'])->name('create');
 //when url menu/index is applied uses MenuControllers index function
-Route::get('menu/index', [App\Http\Controllers\MenuController::class, 'index'])->name('index');
+Route::get('menu/', [App\Http\Controllers\MenuController::class, 'index'])->name('index');
+//when url menu/{id} is applied uses MenuControllers show function to show specific menu item
+Route::get('menu/{id}', [App\Http\Controllers\MenuController::class, 'show'])->name('show');
 
 
