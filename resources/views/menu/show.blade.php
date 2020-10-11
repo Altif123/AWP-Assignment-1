@@ -18,11 +18,13 @@
 
                         <div class="w-1/3 px-2">
                             <h2>{{$menuitem->dish_name}} </h2>
-                            <div class="bg-gray-400 h-18">
+                            <div class="rounded">
+                                <div class=" border-gray-500 h-18">
 
-                                <p> {{$menuitem->description}} </p>
-                                <p> £ {{$menuitem->amount}} </p>
+                                    <p> {{$menuitem->description}} </p>
+                                    <p> £ {{$menuitem->amount}} </p>
 
+                                </div>
                             </div>
                             <br><br>
                         </div>
