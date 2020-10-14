@@ -31,7 +31,7 @@ Route::get('/order', function () {
 });
 
 
-
+//routes for menu
 //when url menu/create is applied it uses MenuControllers create function
 Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('create');
 //post request for the menu/create page which stores form data
@@ -40,5 +40,10 @@ Route::post('menu/create', [App\Http\Controllers\MenuController::class, 'store']
 Route::get('menu/', [App\Http\Controllers\MenuController::class, 'index'])->name('index');
 //when url menu/{id} is applied uses MenuControllers show function to show specific menu item
 Route::get('menu/{id}', [App\Http\Controllers\MenuController::class, 'show'])->name('show');
-
+//when url menu/{id}/edit is applied uses MenuControllers edit function to show specific menu item
+Route::get('menu/{id}/edit', [App\Http\Controllers\MenuController::class, 'edit'])->name('edit');
+//
+Route::put('menu/{id}',[App\Http\Controllers\MenuController::class, 'update'])->name('update') ;
+//
+Route::delete('menu/{id}/delete',[App\Http\Controllers\MenuController::class, 'destroy'])->name('destroy');
 

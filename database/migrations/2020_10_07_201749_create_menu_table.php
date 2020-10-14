@@ -17,7 +17,8 @@ class CreateMenuTable extends Migration
             $table->id();
             $table->char('dish_name', 200);
             $table->mediumText('description');
-            $table->decimal('amount', 10, 2);
+            $table->decimal('price', 10, 2);
+            $table->mediumText('allergy');
             $table->timestamps();
         });
     }

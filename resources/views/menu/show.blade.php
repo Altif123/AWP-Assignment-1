@@ -23,6 +23,16 @@
 
                                     <p> {{$menuitem->description}} </p>
                                     <p> £ {{$menuitem->amount}} </p>
+                                    <form method="post" action="/menu/{{$menuitem -> id }}/delete">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">
+                                            <i class="fas fa-trash inline crud-button"></i>
+                                        </button>
+                                    </form>
+                                    <i class="fas fa-edit inline crud-button">
+                                    <a href="/menu/{{ $menuitem -> id }}/edit"></a>
+                                    </i>
 
                                 </div>
                             </div>

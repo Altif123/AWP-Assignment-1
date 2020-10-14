@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
-    protected $table = 'menu';
+    use HasFactory;
+    public $table = 'menu';
 }

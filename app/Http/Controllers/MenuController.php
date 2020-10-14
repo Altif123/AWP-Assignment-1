@@ -72,9 +72,12 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function edit(MenuController $menu)
+    public function edit($id)
     {
-        //
+        //find article with id
+        $menuItem = Menu::find($id);
+
+        return view('menu.update', ['item'=> $menuItem]);
     }
 
     /**
@@ -84,19 +87,40 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MenuController $menu)
+    public function update($id)
     {
-        //
+        //find article with id
+        $menu = Menu::find($id);
+
+//        $request->validate([
+//            'dish_name' => ['required', 'max:200'],
+//            'description' => ['required'],
+//            'amount' => ['required', 'max:5','min:5'],
+//        ]);
+
+
+        $menu-> dish_name =request('dish_name');
+        $menu-> description =request('description');
+        $menu-> amount =request('amount');
+        $menu ->save();
+
+        return redirect('menu/');
+
     }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Menu $menu
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy(MenuController $menu)
+    public function destroy($id)
     {
-        //
+        $menu = Menu::find($id);
+
+        $menu -> delete();
+        return redirect('menu/');
     }
 }

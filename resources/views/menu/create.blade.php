@@ -48,13 +48,29 @@
                         </p>
                         @enderror
                     </div>
+                    <div class="flex flex-wrap">
+                        <label for="allergy" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Allergy ') }}:
+                        </label>
+
+                        <input id="allergy"
+                               class="form-input w-full @error('description') border-red-500 @enderror" name="allergy"
+                               value="{{ old('allergy') }}" required autocomplete="description"
+                               placeholder=" E.G contains nuts ">
+
+                        @error('allergy')
+                        <p class="text-green-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
 
                     <div class="flex flex-wrap">
                         <label for="amount" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Price') }}:
                         </label>
 
-                        <input id="amount" type="amount"
+                        <input id="price" type="price"
                                class="form-input w-full @error('password') border-red-500 @enderror" name="amount"
                                required autocomplete="amount" placeholder="E.G 10.00">
 
