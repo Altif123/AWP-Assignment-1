@@ -15,7 +15,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $showall = Menu::all();
+        $showall = Menu::all()->sortBy("dish_name");
 
         return view('menu/index',['menu' => $showall]);
     }
@@ -41,16 +41,17 @@ class MenuController extends Controller
         $request->validate([
             'dish_name' => ['required', 'max:200'],
             'description' => ['required'],
-            'amount' => ['required', 'max:5','min:5'],
+            'price' => ['required', 'max:5','min:4'],
         ]);
 
         $menu = new Menu();
         $menu-> dish_name =request('dish_name');
         $menu-> description =request('description');
-        $menu-> amount =request('amount');
+        $menu-> allergy =request('allergy');
+        $menu-> price =request('price');
         $menu ->save();
 
-       return redirect('menu/index');
+       return redirect('menu/');
     }
 
     /**
@@ -101,7 +102,8 @@ class MenuController extends Controller
 
         $menu-> dish_name =request('dish_name');
         $menu-> description =request('description');
-        $menu-> amount =request('amount');
+        $menu-> allergy =request('allergy');
+        $menu-> price =request('price');
         $menu ->save();
 
         return redirect('menu/');

@@ -55,7 +55,7 @@
 
                         <input id="allergy"
                                class="form-input w-full @error('description') border-red-500 @enderror" name="allergy"
-                               value="{{ old('allergy') }}" required autocomplete="description"
+                               value="{{ old('allergy') }}" required autocomplete="allergy"
                                placeholder=" E.G contains nuts ">
 
                         @error('allergy')
@@ -71,8 +71,8 @@
                         </label>
 
                         <input id="price" type="price"
-                               class="form-input w-full @error('password') border-red-500 @enderror" name="amount"
-                               required autocomplete="amount" placeholder="E.G 10.00">
+                               class="form-input w-full @error('password') border-red-500 @enderror" name="price"
+                               required autocomplete="price" placeholder="E.G 10.00">
 
                         @error('amount')
                         <p class="text-red-500 text-xs italic mt-4">

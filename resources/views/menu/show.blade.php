@@ -10,33 +10,35 @@
                 </div>
             @endif
             <h1 class="mb-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
-                Menu
+                {{$menuitem->dish_name}}
             </h1>
 
-                <div class="px-2">
-                    <div class="flex -mx-2">
-
-                        <div class="w-1/3 px-2">
-                            <h2>{{$menuitem->dish_name}} </h2>
-                            <div class="rounded">
-                                <div class=" border-gray-500 h-18">
-
-                                    <p> {{$menuitem->description}} </p>
-                                    <p> £ {{$menuitem->amount}} </p>
-                                    <form method="post" action="/menu/{{$menuitem -> id }}/delete">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit">
-                                            <i class="fas fa-trash inline crud-button"></i>
-                                        </button>
-                                    </form>
-                                    <i class="fas fa-edit inline crud-button">
-                                    <a href="/menu/{{ $menuitem -> id }}/edit"></a>
-                                    </i>
-
-                                </div>
+                <div class="max-w-sm w-full lg:max-w-full lg:flex">
+                    <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
+                    </div>
+                    <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                        <div class="mb-8">
+                            <div class =" flex content-start gap-2">
+                            <form method="post" action="/menu/{{$menuitem -> id }}/delete">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">
+                                    <i class="fas fa-trash inline crud-button cursor-pointer"></i>
+                                </button>
+                            </form>
+                                <a href="/menu/{{ $menuitem -> id }}/edit">
+                            <i class="fas fa-edit cursor-pointer"></i>
+                                </a>
                             </div>
-                            <br><br>
+                            <p class="text-sm text-gray-600 flex items-center">
+                                <img src="/images/cheese-on-toast.jpeg" class="object-scale-down h-48 w-full" alt="{{$menuitem->dish_name}} image ">
+                            </p>
+
+                            <p class="text-gray-700 text-base">{{$menuitem->description}}</p>
+                            <p class="text-orange-700 text-base">{{$menuitem->allergy}}</p>
+
+                        </div>
+
                         </div>
                     </div>
                 </div>
