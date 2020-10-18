@@ -12,7 +12,7 @@
             <h1 class="mb-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Add to Menu
             </h1>
-                <form action="create/" class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8"
+                <form action="{{route('menu.store')}}" class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8"
                       method="POST">
                     @csrf
                     @include('_partials.menuForm')
