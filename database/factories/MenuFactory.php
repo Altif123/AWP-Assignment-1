@@ -21,9 +21,7 @@ class MenuFactory extends Factory
      */
     public function definition()
     {
-        //food faker https://github.com/jzonta/FakerRestaurant
-        //$foodfaker = app('FoodFaker');
-        //rand so text values are not always the same
+
         $randNum = rand(5,20);
         return [
 

@@ -14,20 +14,25 @@
                 {{$menuitem->dish_name}}
             </h1>
 
-            <div class="max-w-sm w-full lg:max-w-full lg:flex">
+            <div class="max-w-sm w-full lg:max-w-full lg:flex">0
                 <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
                 </div>
                 <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <div class="mb-8">
                         <div class=" flex content-start gap-2">
-                            <form method="post" action="/menu/{{$menuitem -> id }}/delete">
+                            <form method="POST" action="/menu/{{$menuitem -> id }}/delete">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">
                                     <i class="fas fa-trash inline crud-button cursor-pointer"></i>
                                 </button>
                             </form>
-                            <p>Add to favorites</p>
+                            <form method="POST" action="/favorites/{{$menuitem -> id }}/{{ $user -> id }}">
+                                @csrf
+                                <button type="submit">
+                                    <i class="fas fa-trash inline crud-button cursor-pointer"></i>
+                                </button>
+                            </form>
                             <a href="/menu/{{ $menuitem -> id }}/edit">
                                 <i class="fas fa-edit cursor-pointer"></i>
                             </a>

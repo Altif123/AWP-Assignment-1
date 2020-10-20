@@ -40,4 +40,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function getFavorites(){
+
+        return $this->belongsToMany(Menu::class,'favorite_user');
+    }
 }

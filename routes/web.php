@@ -32,6 +32,6 @@ Route::delete('menu/{menuItem}/delete', [App\Http\Controllers\MenuController::cl
 
 
 
-Route::post('favorites/{menuItem}', [App\Http\Controllers\FavoriteController::class, 'store'])->name('favorites.store');
+Route::post('favorites/{menu_id}', [App\Http\Controllers\FavoriteController::class, 'store'])->name('favorites.store');
 
 Route::get('favorites', [App\Http\Controllers\FavoriteController::class, 'index'])->name('favorites.index');
