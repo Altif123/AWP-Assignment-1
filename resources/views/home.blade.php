@@ -14,20 +14,18 @@
                 <div class="max-w-screen-xl mx-auto">
                     <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
 
-
                         <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
                             <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start">
                                 <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                                     <div class="flex items-center justify-between w-full md:w-auto">
-                                        <a href="#" aria-label="Home">
+                                        <a href="/" aria-label="Home">
                                             <img class="h-12 w-auto sm:h-14" src="/images/cafe-logo.png" alt="Cafe logo">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="hidden md:block md:ml-10 md:pr-4">
                                     <a href="{{route('menu.index')}}" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Menu</a>
-                                    <a href="{{route('favorites.index')}}" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Order</a>
-                                    <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Favorites</a>
+                                    <a href="{{route('favorites.index')}}" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Favorites</a>
                                 </div>
                             </nav>
                         </div>
@@ -37,7 +35,7 @@
                                 <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
                                     The Coffee of your
                                     <br class="xl:hidden">
-                                    <span class="text-yellow-600">dreams</span>
+                                    <span class="text-yellow-600 dark:text-white">dreams</span>
                                 </h2>
                                 <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                                     Huddersfield Cafe  is located in the town of Huddersfield, on the wonderful New street. We are a short stroll from the University.

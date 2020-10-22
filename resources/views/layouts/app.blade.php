@@ -23,7 +23,7 @@
 
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-<div id="app">
+<div id="app" class="bg-background-secondary">
     <header class="bg-yellow-900 py-6">
         <div class="container mx-auto flex justify-between items-center px-6">
             <div>
@@ -33,8 +33,7 @@
                 </a>
             </div>
 
-
-
+            <button onclick="toggleDarkMode()">Toggle dark mode</button>
 
 
             <div @click.away="open = false" class="relative" x-data="{ open: false }">

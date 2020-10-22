@@ -60,9 +60,6 @@ class MenuController extends Controller
         return redirect('menu/');
     }
 
-    /**
-     * @return array of validated fields
-     */
 
     protected function validateMenuItem()
     {

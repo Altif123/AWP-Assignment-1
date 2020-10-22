@@ -15,6 +15,7 @@
             </h1>
                 @foreach($favorites as $item)
                     @include('_partials.itemCard')
+
                 @endforeach
             </div>
 

@@ -15,7 +15,6 @@ Route::get('/order', function () {
 });
 
 
-
 Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('menu.create');
 
 Route::post('menu/create', [App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
@@ -31,7 +30,8 @@ Route::put('menu/{menuItem}', [App\Http\Controllers\MenuController::class, 'upda
 Route::delete('menu/{menuItem}/delete', [App\Http\Controllers\MenuController::class, 'destroy'])->name('menu.delete');
 
 
-
 Route::post('favorites/{menu_id}', [App\Http\Controllers\FavoriteController::class, 'store'])->name('favorites.store');
+
+Route::delete('favorites/{favoriteItem}', [App\Http\Controllers\FavoriteController::class, 'destroy'])->name('favorites.delete');
 
 Route::get('favorites', [App\Http\Controllers\FavoriteController::class, 'index'])->name('favorites.index');

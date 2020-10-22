@@ -14,12 +14,15 @@
                         <i class="fas fa-trash inline crud-button cursor-pointer"></i>
                     </button>
                 </form>
-                <form method="POST" action="{{route('favorites.store',[$menuItem])}}">
-                    @csrf
-                    <button type="submit">
-                        <i class="fas fa-star inline crud-button cursor-pointer"></i>
-                    </button>
-                </form>
+
+
+                    <form method="POST" action="{{route('favorites.store',[$menuItem])}}">
+                        @csrf
+                        <button type="submit">
+                            <i class="fas fa-star inline crud-button cursor-pointer"></i>
+                        </button>
+                    </form>
+
                 <a href="{{route('menu.edit',$menuItem)}}">
                     <i class="fas fa-edit cursor-pointer"></i>
                 </a>
