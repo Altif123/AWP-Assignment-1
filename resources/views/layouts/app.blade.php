@@ -22,8 +22,8 @@
           crossorigin="anonymous"/>
 
 </head>
-<body class="bg-gray-100 dark:bg-black h-screen antialiased leading-none font-sans">
-<div id="app" >
+<body class=" z-10 bg-gray-100 dark:bg-black h-screen antialiased leading-none font-sans">
+<div id="app">
     <header class="bg-yellow-900 py-6">
         <div class="container mx-auto flex justify-between items-center px-6">
             <div>
@@ -54,7 +54,7 @@
                                 <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                    href="{{ route('register') }}">Register</a>
                             @endif
-                            <span class ="text-lg font-semibold text-gray-300 right-auto">Currently not logged in</span>
+                            <span class="text-lg font-semibold text-gray-300 right-auto">Currently not logged in</span>
                         @else
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
                                href="/">Home</a>
@@ -69,21 +69,24 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
-                            <span class ="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <span class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                 Logged in as: {{ Auth::user()->name }}
                             </span>
+
                     </div>
+
                     @endguest
 
                 </div>
-                <i class="far fa-question-circle" style="color:#7c827d"></i>
+
+                <x-helpModal/>
+
             </div>
-
-
         </div>
     </header>
 
     @yield('content')
-</div>
+
+    </div>
 </body>
 </html>
