@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="sm:container sm:mx-auto sm:mt-10">
+    <main class="sm:container sm:mx-auto sm:mt-10 h-screen">
         <div class="w-full sm:px-6">
 
             @if (session('status'))
@@ -15,7 +15,6 @@
             </h1>
                 @foreach($favorites as $item)
                     @include('_partials.itemCard')
-
                 @endforeach
             </div>
 

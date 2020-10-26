@@ -9,12 +9,13 @@
         <a href="{{route('menu.show',$item)}}">
             <i class="fas fa-info-circle cursor-pointer ">View</i></a>
             @if(Route::current()->getName() == 'favorites.index')
-                {{Route::current()->getName()}}
                 <form method="POST" action="{{route('favorites.delete',[$item])}}">
                     @csrf
                     @method('DELETE')
                     <button type="submit">
-                        <i class="fas fa-trash inline crud-button cursor-pointer"></i>
+                        <i class="fas fa-trash inline crud-button cursor-pointer">
+                            Delete favorite
+                        </i>
                     </button>
                 </form>
             @endif

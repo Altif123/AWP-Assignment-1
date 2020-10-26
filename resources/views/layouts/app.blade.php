@@ -12,8 +12,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Drop downs -->
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
+    <script src="{{ asset('js/alpine.js') }}" defer></script>
+    <!-- Cookies -->
+    <script src="{{ asset('js/cookies.js') }}" defer></script>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome - icons -->
@@ -22,9 +23,10 @@
           crossorigin="anonymous"/>
 
 </head>
-<body class=" z-10 bg-gray-100 dark:bg-black h-screen antialiased leading-none font-sans">
+
+<body class=" theme-light z-20 bg-background-main dark:bg-black h-screen antialiased leading-none font-sans">
 <div id="app">
-    <header class="bg-yellow-900 py-6">
+    <nav class="bg-background-nav py-6">
         <div class="container mx-auto flex justify-between items-center px-6">
             <div>
                 <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
@@ -48,13 +50,15 @@
                     <div class="px-2 py-2 bg-white rounded-md shadow">
                         @guest
 
-                            <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                            <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 hover:text-gray-900
+                            focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="{{ route('login') }}">Login</a>
                             @if (Route::has('register'))
-                                <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                <a class="block px-4 py-2 mt-2 md:text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                    href="{{ route('register') }}">Register</a>
                             @endif
-                            <span class="text-lg font-semibold text-gray-300 right-auto">Currently not logged in</span>
+                            <span class="block px-4 py-2 mt-2 text-xs font-semibold rounded-lg md:mt-0 text-gray-400 hover:text-gray-400
+                            focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Currently not logged in</span>
                         @else
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
                                href="/">Home</a>
@@ -69,24 +73,90 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
-                            <span class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            <span class="block px-4 py-2 mt-2 text-2xl md:text-sm  font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                                 Logged in as: {{ Auth::user()->name }}
                             </span>
-
+                        @endguest
+                            <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()" > Toggle dark mode
                     </div>
 
-                    @endguest
+
 
                 </div>
 
-                <x-helpModal/>
+                </div>
+            <button class="far fa-question-circle" style="color:white" x-data @click="$dispatch('toggle-modal')">Help</button>
 
             </div>
-        </div>
-    </header>
+    </nav>
+    <x-helpModal/>
 
     @yield('content')
 
+</div>
+
+<footer class="footer bg-background-nav relative pt-20 border-t-10 border-blue-700 z-20">
+    <div class="container mx-auto px-6">
+
+        <div class="sm:flex sm:mt-8">
+            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                <div class="flex flex-col">
+                    <span class="my-2"><a href="{{route("menu.index")}}" class="text-gray-400 text-md hover:text-blue-500">Menu</a></span>
+                    <span class="my-2"><a href="{{route("favorites.index")}}" class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
+                    <span class="my-2"><a href="/" class="text-gray-400  text-md hover:text-blue-500">Home</a></span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="my-2"><a href="{{route("login")}}" class="text-gray-400 text-md hover:text-blue-500">Login</a></span>
+                    <span class="my-2"><a href="{{ route('register') }}" class="text-gray-400 text-md hover:text-blue-500">Register</a></span>
+                    <span class="my-2"><a href="{{ route('logout') }}" class="text-gray-400 text-md hover:text-blue-500">Logout</a></span>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="container mx-auto px-6">
+        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-gray-400 font-bold mb-2">
+                    © 2020 by Huddersfield Cafe - Altif Ali
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    darkModeCheck();
+    function darkModeCheck()  {
+        if (docCookies.hasItem("cookieTheme")) {
+            document.getElementById('darkModeToggle').checked = true;
+
+        }
+    }
+
+    if (docCookies.hasItem('cookieTheme')) {
+        var element = document.body;
+        element.classList.toggle("theme-dark");
+
+    }
+
+    function darkModeOn() {
+        var element = document.body;
+        element.classList.toggle("theme-dark");
+
+        var isChecked = document.getElementById('darkModeToggle').checked;
+
+        if (isChecked == true) {
+            docCookies.setItem("cookieTheme", "dark mode on")
+
+        } else {
+            docCookies.removeItem("cookieTheme")
+
+        }
+
+    }
+
+</script>
+
+
 </body>
 </html>

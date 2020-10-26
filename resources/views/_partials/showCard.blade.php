@@ -1,43 +1,50 @@
+<div class="flex items-center justify-center h-screen">
+    <div class=" max-w-lg rounded overflow-hidden shadow-lg pb-20 ">
+        <img class="w-full" src="https://loremflickr.com/320/240/dish,food,steak" alt="{{$menuItem->dish_name}} image">
+        <div class="px-6 py-4">
+            <div class="font-bold text-3xl mb-2">{{$menuItem->dish_name}}</div>
+            <h1 class="text-xl py-1">Description:</h1>
+            <p class="text-gray-700 text-base">{{$menuItem->description}}</p>
+            <h1 class="text-xl py-1">Price:</h1>
+            <p class="text-orange-700 text-sm">£ {{$menuItem->price}}</p>
 
+        </div>
+        <div class="px-6 pt-4 pb-2">
 
-<div class="max-w-sm w-full lg:max-w-full lg:flex">
-    <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden">
-    </div>
-    <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <span class="inline-block bg-red-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <h1 class="text-sm py-1">Allergy advice:</h1>
+            <p class="text-orange-700 text-xs">{{$menuItem->allergy}}</p>
+        </span>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
 
-        <div class="mb-8">
-            <div class=" flex content-start gap-2">
                 <form method="POST" action="{{route('menu.delete',$menuItem)}}">
                     @csrf
                     @method('DELETE')
                     <button type="submit">
-                        <i class="fas fa-trash inline crud-button cursor-pointer"></i>
+                        <i class="fas fa-trash inline crud-button cursor-pointer"> Delete</i>
                     </button>
                 </form>
-
-
-                    <form method="POST" action="{{route('favorites.store',[$menuItem])}}">
-                        @csrf
-                        <button type="submit">
-                            <i class="fas fa-star inline crud-button cursor-pointer"></i>
-                        </button>
-                    </form>
-
+                </i>
+            </div>
+            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <a href="{{route('menu.edit',$menuItem)}}">
-                    <i class="fas fa-edit cursor-pointer"></i>
+                    <i class="fas fa-edit cursor-pointer">Edit </i>
                 </a>
             </div>
-            <p class="text-sm text-gray-600 flex items-center">
-                <img src="/images/cheese-on-toast.jpeg" class="object-scale-down h-48 w-full"
-                     alt="{{$menuItem->dish_name}} image ">
-            </p>
-
-            <p class="text-gray-700 text-base">{{$menuItem->description}}</p>
-            <p class="text-orange-700 text-base">{{$menuItem->allergy}}</p>
-
+            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                <form method="POST" action="{{route('favorites.store',[$menuItem])}}">
+                    @csrf
+                    <button type="submit">
+                        <i class="fas fa-star inline crud-button cursor-pointer"> Add to favorites</i>
+                    </button>
+                </form>
+            </div>
         </div>
-        <a href="javascript:history.back()">
-            <button>Back</button>
-        </a>
+
+        <x-backBtn/>
+
     </div>
+</div>
 </div>

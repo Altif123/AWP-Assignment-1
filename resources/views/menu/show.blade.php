@@ -10,13 +10,9 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <h1 class="mb-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
-                {{$menuItem->dish_name}}
-            </h1>
 
                 @include('_partials.showCard',['item' => $menuItem])
 
-        </div>
 
         </div>
     </main>

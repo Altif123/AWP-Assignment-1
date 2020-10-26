@@ -6,21 +6,22 @@
         <div class="w-full">
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
-                <header class="font-semibold bg-blue-200 text-black-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="font-semibold text-2xl bg-yellow-500 text-black-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     {{ __('Register') }}
                 </header>
 
-                <form class="w-full bg-gray-200 px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
+                <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
                     action="{{ route('register') }}">
                     @csrf
 
                     <div class="flex flex-wrap">
-                        <label for="name" class="block text-red-700 text-sm font-bold mb-2 sm:mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Name') }}:
                         </label>
 
                         <input id="name" type="text" class="form-input w-full @error('name')  border-red-500 @enderror"
-                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                               placeholder=" E.G Joe Blogs">
 
                         @error('name')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -36,7 +37,7 @@
 
                         <input id="email" type="email"
                             class="form-input w-full @error('email') border-red-500 @enderror" name="email"
-                            value="{{ old('email') }}" required autocomplete="email">
+                            value="{{ old('email') }}" required autocomplete="email" placeholder=" E.G Joe@Blog.com">
 
                         @error('email')
                         <p class="text-green-500 text-xs italic mt-4">
@@ -52,7 +53,7 @@
 
                         <input id="password" type="password"
                             class="form-input w-full @error('password') border-red-500 @enderror" name="password"
-                            required autocomplete="new-password">
+                            required autocomplete="new-password" placeholder="*********">
 
                         @error('password')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -67,7 +68,7 @@
                         </label>
 
                         <input id="password-confirm" type="password" class="form-input w-full"
-                            name="password_confirmation" required autocomplete="new-password">
+                            name="password_confirmation" required autocomplete="new-password"  placeholder="*********">
                     </div>
 
                     <div class="flex flex-wrap">
@@ -78,7 +79,7 @@
 
                         <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
                             {{ __('Already have an account?') }}
-                            <a class="text-blue-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('login') }}">
+                            <a class="text-gray-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('login') }}">
                                 {{ __('Login') }}
                             </a>
                         </p>

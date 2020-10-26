@@ -13,7 +13,7 @@
             @endif
 
             <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-                <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                <header class="font-semibold bg-yellow-500 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     {{ __('Reset Password') }}
                 </header>
 
@@ -42,8 +42,8 @@
                             {{ __('Send Password Reset Link') }}
                         </button>
 
-                        <p class="mt-4 text-xs text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline hover:underline sm:text-sm sm:order-0 sm:m-0">
-                            <a class="text-blue-500 hover:text-blue-700 no-underline" href="{{ route('login') }}">
+                        <p class="mt-4 text-xs text-gray-500 hover:text-blue-700 whitespace-no-wrap no-underline hover:underline sm:text-sm sm:order-0 sm:m-0">
+                            <a class="text-gray-500 hover:text-blue-700 no-underline" href="{{ route('login') }}">
                                 {{ __('Back to login') }}
                             </a>
                         </p>

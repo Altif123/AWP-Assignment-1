@@ -1,7 +1,5 @@
 module.exports = {
   future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
   },
   purge: [],
   target: 'relaxed',
@@ -21,6 +19,24 @@ module.exports = {
 
       black: '#000',
       white: '#fff',
+
+      background: {
+        first : 'var(--bg-background-first)',
+        second: 'var(--bg-background-second)',
+        third: 'var(--bg-background-third)',
+        fourth: 'var(--bg-background-fourth)',
+        main: 'var(--bg-background-main)',
+        nav: 'var(--bg-background-nav)'
+      },
+
+      t: {
+        first: 'var(--text-t-first)',
+        second: 'var(--text-t-second)',
+        third: 'var(--text-t-third)',
+
+
+      },
+
 
       gray: {
         100: '#f7fafc',
