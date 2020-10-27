@@ -5,7 +5,7 @@
         <div class="w-full sm:px-6">
 
             @if (session('status'))
-                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4"
+                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-2"
                      role="alert">
                     {{ session('status') }}
                 </div>
@@ -19,7 +19,7 @@
                             <button class="fas fa-plus font-light">Add New Dish</button>
                     </div>
                 </a>
-            <div class="grid p-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third">
+            <div class="grid p-1 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third ">
 
                 @foreach($menu as $item)
 

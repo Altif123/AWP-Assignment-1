@@ -9,12 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Drop downs -->
-    <script src="{{ asset('js/alpine.js') }}" defer></script>
-    <!-- Cookies -->
-    <script src="{{ asset('js/cookies.js') }}" defer></script>
+
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome - icons -->
@@ -24,7 +19,14 @@
 
 </head>
 
-<body class=" theme-light z-20 bg-background-main dark:bg-black h-screen antialiased leading-none font-sans">
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
+<!-- Drop downs -->
+<script src="{{ asset('js/alpine.js') }}" defer></script>
+<!-- Cookies -->
+<script src="{{ asset('js/cookies.js') }}"></script>
+
+<body class=" theme-light z-20 bg-background-first dark:bg-black h-screen antialiased leading-none font-sans">
 <div id="app">
     <nav class="bg-background-nav py-6">
         <div class="container mx-auto flex justify-between items-center px-6">
@@ -33,7 +35,7 @@
                     {{ config('app.name') }}
                 </a>
             </div>
-            <div @click.away="open = false" class="relative" x-data="{ open: false }">
+            <div @click.away="open = false" class="relative " x-data="{ open: false }">
                 <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm
                             font-semibold text-left text-gray-300 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 ">
                     <span>Menu</span>
@@ -47,7 +49,7 @@
                      x-transition:leave-start="transform opacity-100 scale-100"
                      x-transition:leave-end="transform opacity-0 scale-95"
                      class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-40 ">
-                    <div class="px-2 py-2 bg-white rounded-md shadow">
+                    <div class="px-2 py-2 bg-background-main rounded-md shadow">
                         @guest
 
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 hover:text-gray-900
@@ -77,10 +79,10 @@
                                 Logged in as: {{ Auth::user()->name }}
                             </span>
                         @endguest
+                        <div class="text-xs">
                             <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()" > Toggle dark mode
+                        </div>
                     </div>
-
-
 
                 </div>
 
@@ -95,7 +97,7 @@
 
 </div>
 
-<footer class="footer bg-background-nav relative pt-20 border-t-10 border-blue-700 z-20">
+<footer class="footer bg-background-nav relative mt-40 border-t-10 border-blue-700 z-20">
     <div class="container mx-auto px-6">
 
         <div class="sm:flex sm:mt-8">

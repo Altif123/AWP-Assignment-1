@@ -1,4 +1,4 @@
-<div class="  my-3 px-3   bg-gray-200">
+<div class="my-3 px-3 bg-gray-200">
     <a href="/menu/{{ $item -> id }}"><h4
                 class="text-lg leading-6 font-medium text-gray-900">{{$item->dish_name}}</h4></a>
     <p class="mt-2 text-base leading-6 text-gray-500">

@@ -1,5 +1,5 @@
-<div class="flex items-center justify-center h-screen">
-    <div class=" max-w-lg rounded overflow-hidden shadow-lg pb-20 ">
+<div class="flex items-center justify-center">
+    <div class=" max-w-lg rounded overflow-hidden shadow-lg mb-20 ">
         <img class="w-full" src="https://loremflickr.com/320/240/dish,food,steak" alt="{{$menuItem->dish_name}} image">
         <div class="px-6 py-4">
             <div class="font-bold text-3xl mb-2">{{$menuItem->dish_name}}</div>

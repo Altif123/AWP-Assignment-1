@@ -26,13 +26,16 @@ module.exports = {
         third: 'var(--bg-background-third)',
         fourth: 'var(--bg-background-fourth)',
         main: 'var(--bg-background-main)',
-        nav: 'var(--bg-background-nav)'
+        nav: 'var(--bg-background-nav)',
+        header:'var(--bg-background-header)',
+        btn:'var(--bg-background-btn)'
       },
 
       t: {
         first: 'var(--text-t-first)',
         second: 'var(--text-t-second)',
         third: 'var(--text-t-third)',
+        fourth: 'var(--text-t-fourth)'
 
 
       },

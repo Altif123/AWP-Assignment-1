@@ -1,9 +1,9 @@
 
-
-
                 @csrf
+                <div class="h-screen">
+
                 <div class="flex flex-wrap">
-                    <label for="name" class="block text-red-700 text-sm font-bold mb-2 sm:mb-4">
+                    <label for="name" class="block text-red-700 text-sm font-bold  sm:mb-4">
                         {{ __('Dish Name') }}:
                     </label>
 
@@ -18,7 +18,7 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-wrap">
+                <div class="flex flex-wrap ">
                     <label for="description" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                         {{ __('Description') }}:
                     </label>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="flex flex-wrap">
                     <label for="allergy" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                        {{ __('Allergy ') }}:
+                        {{ __('Allergy') }}:
                     </label>
 
                     <input id="allergy"
@@ -67,10 +67,12 @@
                     @enderror
                 </div>
 
-                <div class="flex flex-wrap">
+                <div class="flex flex-wrap mt-8">
+                    <div class="w-1/6 ">
                     <button type="submit"
-                            class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                            class="select-none align-center  font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
                         Add/update menu item
                     </button>
-                    </p>
+                    </div>
+                </div>
                 </div>
