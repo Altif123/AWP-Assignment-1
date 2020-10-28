@@ -80,16 +80,17 @@
                             </span>
                         @endguest
                         <div class="text-xs">
-                            <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()" > Toggle dark mode
+                            <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()"> Toggle dark mode
                         </div>
                     </div>
 
                 </div>
 
-                </div>
-            <button class="far fa-question-circle sm:text-xs" style="color:white" x-data @click="$dispatch('toggle-modal')">Help</button>
-
             </div>
+            <button class="far fa-question-circle sm:text-xs" style="color:white" x-data
+                    @click="$dispatch('toggle-modal')">Help
+            </button>
+        </div>
     </nav>
     <x-helpModal/>
 
@@ -103,14 +104,18 @@
         <div class="sm:flex sm:mt-8">
             <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
                 <div class="flex flex-col">
-                    <span class="my-2"><a href="{{route("menu.index")}}" class="text-gray-400 text-md hover:text-blue-500">Menu</a></span>
-                    <span class="my-2"><a href="{{route("favorites.index")}}" class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
+                    <span class="my-2"><a href="{{route("menu.index")}}"
+                                          class="text-gray-400 text-md hover:text-blue-500">Menu</a></span>
+                    <span class="my-2"><a href="{{route("favorites.index")}}"
+                                          class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
                     <span class="my-2"><a href="/" class="text-gray-400  text-md hover:text-blue-500">Home</a></span>
                 </div>
                 <div class="flex flex-col">
                     <span class="my-2"><a href="{{route("login")}}" class="text-gray-400 text-md hover:text-blue-500">Login</a></span>
-                    <span class="my-2"><a href="{{ route('register') }}" class="text-gray-400 text-md hover:text-blue-500">Register</a></span>
-                    <span class="my-2"><a href="{{ route('logout') }}" class="text-gray-400 text-md hover:text-blue-500">Logout</a></span>
+                    <span class="my-2"><a href="{{ route('register') }}"
+                                          class="text-gray-400 text-md hover:text-blue-500">Register</a></span>
+                    <span class="my-2"><a href="{{ route('logout') }}"
+                                          class="text-gray-400 text-md hover:text-blue-500">Logout</a></span>
                 </div>
             </div>
         </div>
@@ -128,7 +133,8 @@
 
 <script>
     darkModeCheck();
-    function darkModeCheck()  {
+
+    function darkModeCheck() {
         if (docCookies.hasItem("cookieTheme")) {
             document.getElementById('darkModeToggle').checked = true;
 

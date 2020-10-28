@@ -12,7 +12,7 @@ class MenuController extends Controller
     public function index()
     {
         return view('menu/index', [
-            'menu'=> Menu::latest()->get()]);
+            'menu' => Menu::latest()->get()]);
     }
 
 
@@ -39,15 +39,15 @@ class MenuController extends Controller
     public function edit(Menu $menuItem)
     {
 
-        return view('menu.update',  compact('menuItem'));
+        return view('menu.update', compact('menuItem'));
     }
 
 
-    public function update(Request $request,Menu $menuItem)
+    public function update(Request $request, Menu $menuItem)
     {
 
 
-        $menuItem->update( $this->validateMenuItem());
+        $menuItem->update($this->validateMenuItem());
 
         return redirect('menu/');
 

@@ -10,8 +10,9 @@ class Favorite extends Model
     use HasFactory;
     protected $table = 'favorite_user';
 
-    public function favorites(){
+    public function favorites()
+    {
 
-        return $this ->belongsToMany(User::class,'favorite_user','menu_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'favorite_user', 'menu_id')->withTimestamps();
     }
 }

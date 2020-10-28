@@ -9,7 +9,7 @@
                 </div>
             @endif
 
-            <h1 class=" text-gray-600 text-center font-light tracking-wider text-4xl sm:text-2xl mt-10">
+            <h1 class=" text-gray-600 text-center font-light tracking-wider text-4xl md:text-6xl mt-10">
                 Add to Menu
             </h1>
 

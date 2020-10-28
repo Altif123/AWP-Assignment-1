@@ -11,8 +11,7 @@
                 </div>
             @endif
 
-                @include('_partials.showCard',['item' => $menuItem])
-
+            @include('_partials.showCard',['item' => $menuItem])
 
         </div>
     </main>

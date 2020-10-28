@@ -12,15 +12,17 @@ class Menu extends Model
 
     protected $fillable = ['dish_name', 'description', 'allergy', 'price'];
 
-    public function favorites(){
+    public function favorites()
+    {
 
-        return $this ->belongsToMany(User::class,'favorite_user');
+        return $this->belongsToMany(User::class, 'favorite_user');
     }
 
     public function indexPath()
     {
         return "/menu/";
     }
+
     public function showPath()
     {
         return route('menu.show');
@@ -28,12 +30,14 @@ class Menu extends Model
 
     public function editMenuPath()
     {
-        return $this -> id . '/edit';
+        return $this->id . '/edit';
     }
+
     public function deleteMenuPath()
     {
-        return $this -> id . '/delete';
+        return $this->id . '/delete';
     }
+
     public function createMenuPath()
     {
         return 'menu/create';

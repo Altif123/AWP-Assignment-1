@@ -13,10 +13,9 @@ class FavoriteController extends Controller
 
     public function index()
     {
-        //dd(User::first()->getFavorites());
-        $favorites = User::find(auth()-> user()-> id )->getfavorites;
+        $favorites = User::find(auth()->user()->id)->getfavorites;
 
-        return view ('favorite.index', ['favorites'=> $favorites]);
+        return view('favorite.index', ['favorites' => $favorites]);
 
     }
 
@@ -25,8 +24,7 @@ class FavoriteController extends Controller
 
         $favorite = new Favorite();
 
-        $favorite->favorites()->attach(auth()-> user()-> id , ['menu_id' =>$menuItem]);
-
+        $favorite->favorites()->attach(auth()->user()->id, ['menu_id' => $menuItem]);
 
 
         return redirect('favorites/');
@@ -37,7 +35,7 @@ class FavoriteController extends Controller
     {
 
 
-        $favorite->where(['menu_id' => $favoriteItem, 'user_id' => auth()-> user()-> id])->delete();
+        $favorite->where(['menu_id' => $favoriteItem, 'user_id' => auth()->user()->id])->delete();
 
         return redirect('favorites/');
     }
