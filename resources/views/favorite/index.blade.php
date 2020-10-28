@@ -13,6 +13,7 @@
             <h1 class="mb-6  text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Favorites
             </h1>
+                <x-backBtn/>
                 @foreach($favorites as $item)
                     @include('_partials.itemCard')
                 @endforeach

@@ -3,7 +3,7 @@
                 <div class="h-screen">
 
                 <div class="flex flex-wrap">
-                    <label for="name" class="block text-red-700 text-sm font-bold  sm:mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                         {{ __('Dish Name') }}:
                     </label>
 
@@ -26,7 +26,8 @@
                     <input id="description"
                            class="form-input w-full @error('description') border-red-500 @enderror" name="description"
                           required autocomplete="description"
-                           placeholder=" E.G Flame-grilled with crispy skin. Infused with PERi-PERi " value="{{old('description')??$item -> description??''}}">
+                           placeholder=" E.G Flame-grilled with crispy skin. Infused with PERi-PERi "
+                           value="{{old('description')??$item ->description??''}}">
 
                     @error('description')
                     <p class="text-green-500 text-xs italic mt-4">
@@ -74,5 +75,8 @@
                         Add/update menu item
                     </button>
                     </div>
+
                 </div>
+                    <x-backBtn/>
                 </div>
+

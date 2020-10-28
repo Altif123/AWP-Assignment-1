@@ -48,7 +48,7 @@
                      x-transition:leave="transition ease-in duration-75"
                      x-transition:leave-start="transform opacity-100 scale-100"
                      x-transition:leave-end="transform opacity-0 scale-95"
-                     class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 z-40 ">
+                     class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 sm:w-60 z-40 ">
                     <div class="px-2 py-2 bg-background-main rounded-md shadow">
                         @guest
 
@@ -75,8 +75,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
-                            <span class="block px-4 py-2 mt-2 text-2xl md:text-sm  font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                Logged in as: {{ Auth::user()->name }}
+                            <span class="block px-4 py-2 mt-2 md:text-sm text-xs font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Logged in: {{ Auth::user()->name }}
                             </span>
                         @endguest
                         <div class="text-xs">
@@ -87,7 +87,7 @@
                 </div>
 
                 </div>
-            <button class="far fa-question-circle" style="color:white" x-data @click="$dispatch('toggle-modal')">Help</button>
+            <button class="far fa-question-circle sm:text-xs" style="color:white" x-data @click="$dispatch('toggle-modal')">Help</button>
 
             </div>
     </nav>
