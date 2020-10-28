@@ -76,7 +76,7 @@
                                 {{ csrf_field() }}
                             </form>
                             <span class="block px-4 py-2 mt-2 md:text-sm text-xs font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                Logged in: {{ Auth::user()->name }}
+                                {{ Auth::user()->name }}
                             </span>
                         @endguest
                         <div class="text-xs">

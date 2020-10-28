@@ -19,10 +19,6 @@ class FavoriteController extends Controller
         return view ('favorite.index', ['favorites'=> $favorites]);
 
     }
-    public function create($userid,$menuItemid)
-    {
-
-    }
 
     public function store($menuItem)
     {
@@ -36,23 +32,6 @@ class FavoriteController extends Controller
         return redirect('favorites/');
     }
 
-
-    public function show(Favorite $favorite)
-    {
-        //
-    }
-
-
-    public function edit(Favorite $favorite)
-    {
-        //
-    }
-
-
-    public function update(Request $request, Favorite $favorite)
-    {
-        //
-    }
 
     public function destroy(Favorite $favorite, $favoriteItem)
     {

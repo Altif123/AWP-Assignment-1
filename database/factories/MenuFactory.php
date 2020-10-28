@@ -12,16 +12,21 @@ class MenuFactory extends Factory
 
     public function definition()
     {
+        $prefix = ['Spicy','Cheesy','Meaty','Peri-Peri','Sweet','Sour','Sweet and Sour','Tangy',
+            'Zesty','Tasty','Fresh'
+        ];
+        $suffix = ['Burger','Pizza','Wrap','Sushi','Kebab','Donner'
+
+        ];
+
 
         $randNum = rand(5,20);
         return [
 
-            'dish_name' => $this->faker->word,
+            'dish_name' => $prefix [array_rand ($prefix)] .' '. $this->faker->word .' '. $suffix [array_rand ($suffix)],
             'description' => $this->faker->text($maxNbChars = 150),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 4, $min = 0, $max = 20),
             'allergy' =>$this->faker->text($maxNbChars = $randNum)
-
-
         ];
     }
 }

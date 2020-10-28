@@ -23,17 +23,20 @@
                         {{ __('Description') }}:
                     </label>
 
-                    <input id="description"
+
+                    <textarea id="description"
                            class="form-input w-full @error('description') border-red-500 @enderror" name="description"
                           required autocomplete="description"
-                           placeholder=" E.G Flame-grilled with crispy skin. Infused with PERi-PERi "
-                           value="{{old('description')??$item ->description??''}}">
+                           placeholder="E.G Flame-grilled with crispy skin. Infused with PERi-PERi">{{old('description')??$item ->description??''}}</textarea>
 
                     @error('description')
                     <p class="text-green-500 text-xs italic mt-4">
                         {{ $message }}
                     </p>
                     @enderror
+
+
+
                 </div>
                 <div class="flex flex-wrap">
                     <label for="allergy" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">

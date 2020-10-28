@@ -19,22 +19,26 @@
                     <h2 class="text-2xl">Help Section</h2>
                     <p>Hello welcome to the help section which will show you how our site works</p>
                     <ul class="list-disc m-5 py-2 px-2">
-                        <p class="py-2 px-2"> Menu page </p>
+                        <p class="py-2 px-2 underline"> Menu page </p>
                         <li> The menu page will allow you view our menu. You can add to the menu by selecting the new
                         Add New Dish button, this will take you to a page where you can enter a new dish. When entering
                             a new dish please ensure you fill all the fields.
                         </li>
-                        <p class="py-2 px-2"> Editing/updating </p>
+                        <p class="underline"><i class="py-2 px-2 fas fa-edit"></i> Editing/updating </p>
                         <li> When viewing a dish you can edit dish details, remove the dish from the menu and add the
                         dish to your favorites using the buttons located at the bottom of the page.</li>
-                        <p class="py-2 px-2"> How the favorites work </p>
+                        <p class="underline" ><i class="py-2 px-2 fas fa-star"></i> How the favorites work </p>
                         <li>If you want to add an dish to your favorites section select the Add to favorites button
                         if you then visit the favorites page all your favorite dishes will show up there. To remove
                             from favorites select the delete button
                         </li>
+                        <p class="py-2 px-2 underline"> How darkmode works </p>
+                        <li>
+                            If you have any visual impairments you can switch the theme to dark mode which may improve your
+                            experience of the site. To activate dark mode simply select the check box in the
+                        </li>
                     </ul>
                     <button class="text-blue-400 " type="button" @click="close">
-
                         close
                     </button>
                 </div>

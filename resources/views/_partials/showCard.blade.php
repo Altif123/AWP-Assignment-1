@@ -18,26 +18,21 @@
         </div>
         <div class="px-6 pt-4 pb-2">
             <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-
                 <form method="POST" action="{{route('menu.delete',$menuItem)}}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">
-                        <i class="fas fa-trash inline crud-button cursor-pointer"> Delete</i>
-                    </button>
+                    <x-deleteBtn/>
                 </form>
-                </i>
             </div>
+
             <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <a href="{{route('menu.edit',$menuItem)}}">
-                    <i class="fas fa-edit cursor-pointer">Edit </i>
+                    <i class="fas fa-edit inline cursor-pointer px-3 py-2">Edit </i>
                 </a>
             </div>
             <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <form method="POST" action="{{route('favorites.store',[$menuItem])}}">
                     @csrf
                     <button type="submit">
-                        <i class="fas fa-star inline crud-button cursor-pointer"> Add to favorites</i>
+                        <i class="fas fa-star inline crud-button cursor-pointer px-3 py-2"> Add to favorites</i>
                     </button>
                 </form>
             </div>
