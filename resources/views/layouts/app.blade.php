@@ -38,7 +38,9 @@
             <div @click.away="open = false" class="relative " x-data="{ open: false }">
                 <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm
                             font-semibold text-left text-gray-300 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 ">
-                    <span>Menu</span>
+                    <span tabindex="0"
+                          role="button"
+                          aria-pressed="false">Menu</span>
                     <i fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
                        class="fas fa-bars inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"></i>
                 </button>
@@ -54,20 +56,20 @@
 
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 hover:text-gray-900
                             focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                               href="{{ route('login') }}">Login</a>
+                               href="{{ route('login') }}" aria-label="Go to login page">Login</a>
                             @if (Route::has('register'))
                                 <a class="block px-4 py-2 mt-2 md:text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                                   href="{{ route('register') }}">Register</a>
+                                   href="{{ route('register') }}" aria-label="Go to menu register page">Register</a>
                             @endif
                             <span class="block px-4 py-2 mt-2 text-xs font-semibold rounded-lg md:mt-0 text-gray-400 hover:text-gray-400
                             focus:text-gray-400 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Currently not logged in</span>
                         @else
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
-                               href="/">Home</a>
+                               href="/" aria-label="Go to home page">Home</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
-                               href="{{route('menu.index')}}">Menu</a>
+                               href="{{route('menu.index')}}" aria-label="Go to menu listing page">Menu</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                               href="{{route('favorites.index')}}">Favorites</a>
+                               href="{{route('favorites.index')}}" aria-label="Go to favorites listing page">Favorites</a>
                             <a href="{{ route('logout') }}"
                                class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                onclick="event.preventDefault();
@@ -76,10 +78,12 @@
                                 {{ csrf_field() }}
                             </form>
                             <span class="block px-4 py-2 mt-2 md:text-sm text-xs font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                                {{ Auth::user()->name }}
+                                <p>{{ Auth::user()->name }}</p>
                             </span>
                         @endguest
-                        <div class="text-xs">
+                        <div class="text-xs" tabindex="0"
+                             role="button"
+                             aria-pressed="false">
                             <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()"> Toggle dark mode
                         </div>
                     </div>
@@ -87,7 +91,9 @@
                 </div>
 
             </div>
-            <button class="far fa-question-circle sm:text-xs" style="color:white" x-data
+            <button class="far fa-question-circle sm:text-xs" tabindex="0"
+                    role="button"
+                    style="color:white" x-data
                     @click="$dispatch('toggle-modal')">Help
             </button>
         </div>
@@ -103,14 +109,14 @@
 
         <div class="sm:flex sm:mt-8">
             <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
-                <div class="flex flex-col">
+                <div class="flex flex-col mt-8">
                     <span class="my-2"><a href="{{route("menu.index")}}"
                                           class="text-gray-400 text-md hover:text-blue-500">Menu</a></span>
                     <span class="my-2"><a href="{{route("favorites.index")}}"
                                           class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
                     <span class="my-2"><a href="/" class="text-gray-400  text-md hover:text-blue-500">Home</a></span>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col mt-8">
                     <span class="my-2"><a href="{{route("login")}}" class="text-gray-400 text-md hover:text-blue-500">Login</a></span>
                     <span class="my-2"><a href="{{ route('register') }}"
                                           class="text-gray-400 text-md hover:text-blue-500">Register</a></span>
