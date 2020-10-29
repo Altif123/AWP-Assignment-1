@@ -11,7 +11,9 @@
             <div class="flex item-center justify-between mt-3">
                 <h1 class="text-gray-700 font-bold text-sm  ">£ {{$item->price}}</h1>
                 <a href="/menu/{{ $item -> id }}">
-                    <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold rounded">View</button>
+                    <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold rounded" aria-label="View Item in more detail">
+                        View
+                    </button>
                 </a>
                 @if(Route::current()->getName() == 'favorites.index')
                     <form method="POST" action="{{route('favorites.delete',[$item])}}">

@@ -3,13 +3,6 @@
 @section('content')
     <main class="sm:container sm:mx-auto sm:mt-10 h-screen ">
         <div class="w-full sm:px-6 ">
-            @if (session('status'))
-                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4"
-                     role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
             <div class="relative overflow-hidden">
                 <div class="max-w-screen-xl mx-auto ">
                     <div class="relative  pb-8 bg-background-main sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -24,16 +17,18 @@
                                     </div>
                                 </div>
                                 <div class=" md:block md:ml-10 md:pr-4">
-                                    <a href="{{route('menu.index')}}"
+                                    <a href="{{route('menu.index')}}" aria-label="Go to menu listing page"
                                        class="font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Menu</a>
-                                    <a href="{{route('favorites.index')}}"
+                                    <a href="{{route('favorites.index')}}" aria-label="Go to favorites listing page"
                                        class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Favorites</a>
                                 </div>
                             </nav>
                         </div>
 
+
                         <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                             <div class="sm:text-center lg:text-left">
+                                <article>
                                 <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-t-first sm:text-5xl sm:leading-none md:text-6xl">
                                     The Coffee of your
                                     <br class="xl:hidden">
@@ -56,6 +51,7 @@
                                 </p>
                                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 </div>
+                                </article>
                             </div>
                         </div>
                     </div>
