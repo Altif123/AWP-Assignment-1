@@ -13,6 +13,25 @@ The web app allows users to login and add?edit dishes to the menu. Users can als
 - tailwindcss/ui
 - Laravel -v8
 - PHP -v7.3
+###Installation
+To install the web application please do the following:
+-copy the env example file using the following command in to the terminal
+ 
+`> cp .env.example .env`
+
+You will also need the following 
+ 
+-A mysql database connection. Xampp is easiest to use.
+
+Then you will need to run the following commands in the terminal to install the project
+
+`> php artisan key:generate`
+
+`> php artisan migrate:fresh --seed`
+
+Then run `> php artisan serve` to start the server 
+
+The url the app will be on is `http://127.0.0.1:8000/`
 ### Libraries used 
 - Alpine.js (https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js)
 - Cookie.js (https://github.com/madmurphy/cookies1.js)
