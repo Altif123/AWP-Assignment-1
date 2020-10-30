@@ -8,8 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Drop downs -->
+    <script src="{{ asset('js/alpine.js') }}" defer></script>
+    <!-- Cookies -->
+    <script src="{{ asset('js/cookies.js') }}"></script>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome - icons -->
@@ -18,13 +22,6 @@
           crossorigin="anonymous"/>
 
 </head>
-
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-<!-- Drop downs -->
-<script src="{{ asset('js/alpine.js') }}" defer></script>
-<!-- Cookies -->
-<script src="{{ asset('js/cookies.js') }}"></script>
 
 <body class=" theme-light z-20 bg-background-first dark:bg-black h-screen antialiased leading-none font-sans">
 <div id="app">
