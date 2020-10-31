@@ -18,29 +18,4 @@ class Menu extends Model
         return $this->belongsToMany(User::class, 'favorite_user');
     }
 
-    public function indexPath()
-    {
-        return "/menu/";
-    }
-
-    public function showPath()
-    {
-        return route('menu.show');
-    }
-
-    public function editMenuPath()
-    {
-        return $this->id . '/edit';
-    }
-
-    public function deleteMenuPath()
-    {
-        return $this->id . '/delete';
-    }
-
-    public function createMenuPath()
-    {
-        return 'menu/create';
-
-    }
 }
