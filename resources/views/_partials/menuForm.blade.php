@@ -5,7 +5,8 @@
             {{ __('Dish Name') }}:
         </label>
 
-        <input id="dish_name" aria-label="Dish name" type="text" class="form-input w-full @error('name')  border-red-500 @enderror"
+        <input id="dish_name" aria-label="Dish name" type="text"
+               class="form-input w-full @error('name')  border-red-500 @enderror"
                name="dish_name" required autocomplete="dish_name" autofocus
                placeholder=" Example PERI chicken" value="{{ $item -> dish_name??''}}">
 
@@ -33,7 +34,6 @@
         </p>
         @enderror
 
-
     </div>
     <div class="flex flex-wrap">
         <label for="allergy" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
@@ -57,7 +57,7 @@
             {{ __('Price') }}:
         </label>
 
-        <input id="price" type="price"  aria-label="Price"
+        <input id="price" type="price" aria-label="Price"
                class="form-input w-full @error('password') border-red-500 @enderror" name="price"
                required autocomplete="price" placeholder="example 10.00" value="{{old('price')??$item -> price??''}}">
 

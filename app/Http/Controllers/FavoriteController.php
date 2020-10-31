@@ -29,3 +29,4 @@ class FavoriteController extends Controller
     }
 }
 
+
