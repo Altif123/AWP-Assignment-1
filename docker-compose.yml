@@ -12,6 +12,7 @@ services:
     tty: true
     image: 'bitnami/laravel:latest'
     container_name: Huddersfield-Cafe-laravel
+    command: php artisan db:seed
     user: root
     labels:
       kompose.service.type: nodeport
