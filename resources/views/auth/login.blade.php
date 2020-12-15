@@ -81,6 +81,9 @@
                                     </a>
                                 </p>
                             @endif
+                            <div class ="flex flex-wrap items-center justify-around">
+                                <a href="{{ route('github.redirect') }}">sign in with github"<i class="fab fa-github"></i></a>
+                            </div>
                         </div>
                     </form>
 

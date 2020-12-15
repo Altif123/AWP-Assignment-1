@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/auth/github/redirect', [\App\Http\Controllers\Auth\GithubController::class, 'redirect'])->name('github.redirect');
+Route::get('/auth/github/callback', [\App\Http\Controllers\Auth\GithubController::class, 'callback'])->name('github.callback');
+
 Route::middleware ('auth') -> group (function () {
 
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
