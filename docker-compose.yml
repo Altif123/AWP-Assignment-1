@@ -1,0 +1,28 @@
+version: "3.3"
+services:
+  mysql:
+    image: bitnami/mariadb:latest
+    container_name: Huddersfield-Cafe-DB
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=test
+      - MARIADB_DATABASE=testdb
+      - MARIADB_PASSWORD=test
+  laravel-app:
+    tty: true
+    image: 'bitnami/laravel:latest'
+    container_name: Huddersfield-Cafe-laravel
+    user: root
+    labels:
+      kompose.service.type: nodeport
+    environment:
+      - DB_HOST=mysql
+      - DB_USERNAME=test
+      - DB_DATABASE=testdb
+      - DB_PASSWORD=test
+    depends_on:
+      - mysql
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
