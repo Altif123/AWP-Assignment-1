@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Menu;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 class MenuController extends Controller
@@ -12,6 +13,12 @@ class MenuController extends Controller
     {
         return view('menu/index', [
             'menu' => Menu::latest()->get()]);
+    }
+    public function filterByCategory(Request $request)
+    {
+        $option = $request->category;
+        return view('menu/index', [
+            'menu' => Menu::where('category', 'LIKE', $option)->get()]);
     }
 
     public function create()
@@ -54,7 +61,9 @@ class MenuController extends Controller
             'description' => ['required'],
             'allergy' => ['required'],
             'price' => ['required', 'max:5', 'min:4'],
+            'category' =>[],
         ]);
     }
+
 }
 

@@ -67,6 +67,27 @@
         </p>
         @enderror
     </div>
+    <div class="flex flex-wrap">
+        <label for="category" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+            {{ __('Category') }}:
+        </label>
+
+        <select id="category" type="category" aria-label="category"
+                class="form-input w-full @error('password') border-red-500 @enderror" name="category"
+                required autocomplete="price">
+            <option value="Sea food">Sea food</option>
+            <option value="Thai">Thai</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Indian">Indian</option>
+            <option value="Turkish">Turkish</option>
+        </select>
+
+        @error('price')
+        <p class="text-red-500 text-xs italic mt-4">
+            {{ $message }}
+        </p>
+        @enderror
+    </div>
 
     <div class="flex flex-wrap mt-8">
         <div class="w-1/6 ">
