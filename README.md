@@ -9,10 +9,12 @@ The web app allows users to login and add?edit dishes to the menu. Users can als
 - Users can switch between dark mode and light mode, this helps those users with visualimpariments to navigate the site more easily.
 - There is also a help section that explains how to use all the pages.
 - The site is also accesible for the use of screen readers.
+
 ### Dependencies 
 - tailwindcss/ui
 - Laravel -v8
 - PHP -v7.3
+
 ###Installation
 To install the web application please do the following:
 -copy the env example file using the following command in to the terminal
@@ -22,6 +24,8 @@ To install the web application please do the following:
 You will also need the following 
  
 -A mysql database connection. Xampp is easiest to use.
+
+-Or you could simply use the command `> docker-compose up` , docker will need to be installed first.
 
 Then you will need to run the following commands in the terminal to install the project
 
