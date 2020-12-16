@@ -71,7 +71,9 @@
                         no-underline text-gray-100 bg-background-btn hover:bg-blue-700 sm:py-4">
                                 {{ __('Login') }}
                             </button>
-
+                            <div class ="text-gray-900 hover:text-blue-700 no-underline hover:underline text-xs pt-6">
+                                <a href="{{ route('github.redirect') }}">Sign in with github <i class="fab fa-github"></i></a>
+                            </div>
                             @if (Route::has('register'))
                                 <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
                                     {{ __("Don't have an account?") }}
@@ -81,9 +83,6 @@
                                     </a>
                                 </p>
                             @endif
-                            <div class ="flex flex-wrap items-center justify-around">
-                                <a href="{{ route('github.redirect') }}">sign in with github"<i class="fab fa-github"></i></a>
-                            </div>
                         </div>
                     </form>
 

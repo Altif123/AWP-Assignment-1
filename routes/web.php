@@ -31,4 +31,10 @@ Route::middleware ('auth') -> group (function () {
     Route::delete('favorites/{favoriteItem}', [App\Http\Controllers\FavoriteController::class, 'destroy'])->name('favorites.delete');
 
     Route::get('favorites', [App\Http\Controllers\FavoriteController::class, 'index'])->name('favorites.index');
+
+    Route::get('profile', [App\Http\Controllers\UserController::class, 'show'])->name('profile.show');
+
+//    Route::get('profile/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('profile.update');
+
+    Route::put('profile/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
 });
