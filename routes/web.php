@@ -37,4 +37,6 @@ Route::middleware ('auth') -> group (function () {
     Route::put('profile/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
 
     Route::post('filterByCategory', [App\Http\Controllers\MenuController::class, 'filterByCategory'])->name('filterByCategory');
+
+    Route::post('searchByDishName', [App\Http\Controllers\MenuController::class, 'searchByDishName'])->name('searchByDishName');
 });
