@@ -32,4 +32,20 @@ class User extends Authenticatable
         return Gravatar::get($this->email);
 
     }
+
+    public function Roles(){
+
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function assignRole($role){
+
+        $this->roles()->sync($role,false);
+    }
+
+    public function permissions(){
+
+        return $this-> roles->map->permissions->flatten()->pluck('name')->unique();
+
+    }
 }
