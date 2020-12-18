@@ -9,8 +9,14 @@
                     <img src="{{$user->avatar_url}}"
                          class="rounded-full border-solid border-white border-2 -mt-3">
                 </div>
+                @foreach($user->roles as $role)
+                    @isset($role)
+                        {{$role->name}}
+                    @endisset
+                @endforeach
                 <div class="text-center px-3 pb-6 pt-2">
-                    <form action="{{route('profile.update',$user)}}}" class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8"
+                    <form action="{{route('profile.update',$user)}}}"
+                          class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8"
                           method="POST">
                         @csrf
                         @method('PUT')
@@ -23,7 +29,7 @@
                             <input id="name" type="text"
                                    class="form-input bg-background-fourth w-full @error('name')  border-red-500 @enderror"
                                    name="name" value="{{old('name')??$user -> name}}"
-                                   autofocus placeholder="{{$user->name}}" >
+                                   autofocus placeholder="{{$user->name}}">
 
                             @error('name')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -58,7 +64,7 @@
                             <input id="password" type="password"
                                    class="form-input w-full bg-background-fourth @error('password') border-red-500 @enderror"
                                    name="password"
-                                    placeholder="*********">
+                                   placeholder="*********">
 
                             @error('password')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -73,7 +79,7 @@
                             </label>
 
                             <input id="password-confirm" type="password" class="form-input bg-background-fourth w-full"
-                                   name="password_confirmation"  autocomplete="new-password"
+                                   name="password_confirmation" autocomplete="new-password"
                                    placeholder="*********">
                         </div>
 

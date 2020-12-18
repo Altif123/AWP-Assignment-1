@@ -39,4 +39,8 @@ Route::middleware ('auth') -> group (function () {
     Route::post('filterByCategory', [App\Http\Controllers\MenuController::class, 'filterByCategory'])->name('filterByCategory');
 
     Route::post('searchByDishName', [App\Http\Controllers\MenuController::class, 'searchByDishName'])->name('searchByDishName');
+
+    Route::get('/contact-us', function () {
+        return view('contact.contactForm');
+    });
 });
