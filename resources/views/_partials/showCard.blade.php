@@ -13,28 +13,31 @@
         </div>
         <div class="px-6 pt-4 pb-2">
 
-        <span class="inline-block bg-red-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" >
+        <span class="inline-block bg-red-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
             <h1 class="text-sm py-1" aria-label="Allergy advice">Allergy advice:</h1>
             <p class="text-orange-700 text-xs">{{$menuItem->allergy}}</p>
         </span>
 
         </div>
         <div class="px-6 pt-4 pb-2">
-            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                <form method="POST" action="{{route('menu.delete',$menuItem)}}">
-                    <x-deleteBtn/>
-                </form>
-            </div>
-
-            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                <a href="{{route('menu.edit',$menuItem)}}" aria-label="Edit this item">
-                    <i class="fas fa-edit inline cursor-pointer px-3 py-2">Edit </i>
-                </a>
-            </div>
+            @can('delete_menu_item')
+                <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <form method="POST" action="{{route('menu.delete',$menuItem)}}">
+                        <x-deleteBtn/>
+                    </form>
+                </div>
+            @endcan
+            @can('delete_menu_item')
+                <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <a href="{{route('menu.edit',$menuItem)}}" aria-label="Edit this item">
+                        <i class="fas fa-edit inline cursor-pointer px-3 py-2">Edit </i>
+                    </a>
+                </div>
+            @endcan
             <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 <form method="POST" action="{{route('favorites.store',[$menuItem])}}">
                     @csrf
-                    <button type="submit" role ="button">
+                    <button type="submit" role="button">
                         <i class="fas fa-star inline crud-button cursor-pointer px-3 py-2"> Add to favorites</i>
                     </button>
                 </form>

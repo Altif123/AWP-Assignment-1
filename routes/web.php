@@ -20,11 +20,11 @@ Route::middleware ('auth') -> group (function () {
 
     Route::get('menu/{menuItem}', [App\Http\Controllers\MenuController::class, 'show'])->name('menu.show');
 
-    Route::get('menu/{menuItem}/edit', [App\Http\Controllers\MenuController::class, 'edit'])->name('menu.edit');
+    Route::get('menu/{menuItem}/edit', [App\Http\Controllers\MenuController::class, 'edit'])->middleware('can:edit_menu_item')->name('menu.edit');
 
     Route::put('menu/{menuItem}', [App\Http\Controllers\MenuController::class, 'update'])->name('menu.update');
 
-    Route::delete('menu/{menuItem}/delete', [App\Http\Controllers\MenuController::class, 'destroy'])->name('menu.delete');
+    Route::delete('menu/{menuItem}/delete', [App\Http\Controllers\MenuController::class, 'destroy'])->middleware('can:delete_menu_item')->name('menu.delete');
 
     Route::post('favorites/{menu_id}', [App\Http\Controllers\FavoriteController::class, 'store'])->name('favorites.store');
 
