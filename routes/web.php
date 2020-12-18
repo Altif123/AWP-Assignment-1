@@ -12,7 +12,7 @@ Route::middleware ('auth') -> group (function () {
 
     Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('menu.create');
+    Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->middleware('can:create_menu_item')->name('menu.create');
 
     Route::post('menu/create', [App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
 

@@ -7,7 +7,7 @@
             <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Menu
             </h1>
-            @can('edit_menu_item')
+            @can('create_menu_item')
             <a href="{{route('menu.create')}}">
                 <div class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm  text-gray-700 mr-2 mb-2 ">
                     <button class="fas fa-plus font-light">Add New Dish</button>
