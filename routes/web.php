@@ -40,7 +40,8 @@ Route::middleware ('auth') -> group (function () {
 
     Route::post('searchByDishName', [App\Http\Controllers\MenuController::class, 'searchByDishName'])->name('searchByDishName');
 
-    Route::get('/contact-us', function () {
-        return view('contact.contactForm');
-    });
+    Route::get('contact-us', [App\Http\Controllers\ContactController::class, 'show'])->name('contact.show');
+
+    Route::post('contact-us/store', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
+
 });

@@ -35,5 +35,14 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => env('GITHUB_CALLBACK_URL'),
     ],
+    'providers' => [
+
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+    ],
+
+    'aliases' => [
+
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+    ]
 
 ];

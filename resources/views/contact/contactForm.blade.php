@@ -2,54 +2,135 @@
 
 @section('content')
     <main class="sm:container sm:mx-auto sm:mt-10">
-    <form class="w-full max-w-lg">
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-                    First Name
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                       id="grid-first-name" type="text" placeholder="Jane">
+        <div class="justify-content-center">
+            <div class="py-4 px-8 float-right">
+                <section
+                        class="flex flex-col py-8 px-8 w-450 h-450 break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+                    <header class="font-semibold text-2xl bg-background-header text-t-fourth py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                        {{ __('Where to find us') }}
+                    </header>
+
+                    <iframe
+                            class="py-8 px-8 border-solid border-4 border-light-blue-500"
+                            width="600"
+                            height="450"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBy6q3uT7Aowry6z0t58QuVkllZmCaq7-A
+    &q=Coffeevolution,Huddersfiled+UK" allowfullscreen>
+                    </iframe>
+                    <a href="https://www.google.com/maps/place/Coffeevolution/@53.647599,-1.781867,1066m/data=!3m1!1e3!4m5!3m4!1s0x0:0x3ccf176ea896f5b!8m2!3d53.6475988!4d-1.781867?hl=en-US"
+                    <div class="flex flex-wrap ">
+                        <button type="submit" role="button"
+                                class="select-none w-full align-center  font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                            Print map
+                        </button>
+                    </div>
+                    </a>
+                </section>
+
             </div>
-            <div class="w-full md:w-1/2 px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-                    Last Name
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                       id="grid-last-name" type="text" placeholder="Doe">
-            </div>
+            <section
+                    class="flex flex-col flex-1  py-8 px-8 break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+                <header class="font-semibold text-2xl bg-background-header text-t-fourth py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
+                    {{ __('Contact us') }}
+                </header>
+
+                <p class="w-full max-w-lg text-center py-8">We strive to serve up the best, most amazing experience at
+                    Huddersfield-Cafe, and
+                    what you think
+                    lies at the heart of everything we do. We’d love to hear your thoughts on everything
+                    from our food to our furniture, so don’t be shy…</p>
+
+                <form method="POST" action="{{route('contact.store')}}" class="w-full max-w-lg">
+                    @csrf
+                    @if(session('message'))
+                        <div role="alert">
+                            <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">
+                                Sent
+                            </div>
+                            <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                                <p>{{session('message')}}</p>
+                            </div>
+                        </div>
+                    @endif
+                    <div class="flex flex-wrap pt-2">
+                        <label class="block tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
+                            Name:
+                        </label>
+
+                        <input id="name" aria-label="name" type="text"
+                               class="form-input w-full @error('name')  border-red-500 @enderror"
+                               name="name" required autocomplete="name" autofocus
+                               placeholder=" Name goes here..." value="">
+
+                        @error('name')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap pt-2">
+                        <label for="email" class="block tracking-wide text-gray-700 text-xs font-bold mb-2">
+                            {{ __('Email') }}:
+                        </label>
+
+                        <input id="email" type="email"
+                               class="form-input w-full bg-background-fourth @error('email') border-red-500 @enderror"
+                               name="email"
+                               value="{{ old('email') }}" required autocomplete="email"
+                               placeholder=" E.G Joe@Blog.com">
+
+                        @error('email')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap pt-2">
+                        <label for="subject" class="block tracking-wide text-gray-700 text-xs font-bold mb-2">
+                            {{ __('Subject') }}:
+                        </label>
+
+                        <input id="subject" aria-label="subject" type="text"
+                               class="form-input w-full @error('subject')  border-red-500 @enderror"
+                               name="subject" required autocomplete="subject" autofocus
+                               placeholder=" Name goes here..." value="">
+
+                        @error('email')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap pt-2">
+                        <label for="message" class="block tracking-wide text-gray-700 text-xs font-bold mb-2">
+                            {{ __('Message') }}:
+                        </label>
+
+                        <input id="message" aria-label="message" type="text"
+                               class="form-input w-full @error('message')  border-red-500 @enderror"
+                               name="message" required autocomplete="subject" autofocus
+                               placeholder=" Message goes here..." value="">
+
+                        @error('message')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-wrap mt-8">
+                        <button type="submit" role="button"
+                                class="select-none w-full align-center  font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                            Send
+                        </button>
+                    </div>
+                </form>
+
+            </section>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                    E-mail
-                </label>
-                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                       id="email" type="email">
-                <p class="text-gray-600 text-xs italic">Some tips - as long as needed</p>
-            </div>
-        </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                    Message
-                </label>
-                <textarea
-                        class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-                        id="message"></textarea>
-                <p class="text-gray-600 text-xs italic">Re-size can be disabled by set by resize-none / resize-y /
-                    resize-x / resize</p>
-            </div>
-        </div>
-        <div class="md:flex md:items-center">
-            <div class="md:w-1/3">
-                <button class="shadow bg-yellow-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="button">
-                    Send
-                </button>
-            </div>
-            <div class="md:w-2/3"></div>
-        </div>
-    </form>
-        </main>
+    </main>
 @endsection
