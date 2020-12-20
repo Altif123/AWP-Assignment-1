@@ -20,6 +20,13 @@ class MenuController extends Controller
         return view('menu/index', [
             'menu' => Menu::where('category', 'LIKE', $option)->get()]);
     }
+    public function filterByPrice(Request $request)
+    {
+        $option = $request->price;
+
+        return view('menu/index', [
+            'menu' => Menu::where('price', '<=', $option)->get()]);
+    }
     public function searchByDishName(Request $request)
     {
         return view('menu/index', [

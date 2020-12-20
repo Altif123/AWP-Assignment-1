@@ -17,7 +17,7 @@
             <div class="my-2 flex sm:flex-row flex-col">
                 <div class="flex flex-row mb-1 sm:mb-0">
 
-                    <form method="POST" action="{{route('filterByCategory')}}">
+                    <form method="GET" action="{{route('filterByCategory')}}">
                         @csrf
                         <div class="relative text-gray-600 focus-within:text-gray-400">
 
@@ -44,11 +44,32 @@
                         <input type="search" name="searchTerm"id="searchTerm"  class="bg-purple-white shadow rounded border-0 " placeholder="Search by dish name...">
                             <button type="submit" role="button"
                                     class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">
-                                search
+                                search <i class="fas fa-search"></i>
                             </button>
 
                         </form>
                     </div>
+
+                    <div class="flex flex-row mb-1 pl-2 sm:mb-0">
+                        <form method="POST" action="{{route('filterByPrice')}}">
+                            @csrf
+                            <input type="range" name="price" value="4" min="1" max="30" oninput="this.nextElementSibling.value = this.value">
+                            <output>4</output>
+                            <button type="submit" role="button"
+                                    class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">
+                                Apply filter
+                            </button>
+
+                        </form>
+                    </div>
+                    <div class="flex flex-row mb-1 pl-2 sm:mb-0">
+                        <a href="{{route('menu.index')}}">
+                        <button type="submit" role="button"
+                                class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">
+                        refresh filters <i class="fas fa-sync pl-2"></i>
+                        </button></a>
+                    </div>
+
                 </div>
             </div>
 

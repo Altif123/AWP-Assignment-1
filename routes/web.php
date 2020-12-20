@@ -38,6 +38,8 @@ Route::middleware ('auth') -> group (function () {
 
     Route::post('filterByCategory', [App\Http\Controllers\MenuController::class, 'filterByCategory'])->name('filterByCategory');
 
+    Route::post('filterByPrice', [App\Http\Controllers\MenuController::class, 'filterByPrice'])->name('filterByPrice');
+
     Route::post('searchByDishName', [App\Http\Controllers\MenuController::class, 'searchByDishName'])->name('searchByDishName');
 
     Route::get('contact-us', [App\Http\Controllers\ContactController::class, 'show'])->name('contact.show');
