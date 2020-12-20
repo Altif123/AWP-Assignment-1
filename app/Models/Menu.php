@@ -10,7 +10,7 @@ class Menu extends Model
     use HasFactory;
     protected $table = 'menu';
 
-    protected $fillable = ['dish_name', 'description', 'allergy', 'price','category'];
+    protected $fillable = ['dish_name', 'description', 'allergy', 'price','category','image'];
 
 
     public function favorites()

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactUs;
-use GoogleMaps\GoogleMaps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 

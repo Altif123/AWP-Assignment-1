@@ -82,7 +82,21 @@
             <option value="Turkish">Turkish</option>
         </select>
 
-        @error('price')
+        @error('category')
+        <p class="text-red-500 text-xs italic mt-4">
+            {{ $message }}
+        </p>
+        @enderror
+    </div>
+
+    <div class="flex flex-wrap">
+        <label for="category" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+            {{ __('Image') }}:
+        </label>
+
+        <input type="file" id="image" name="image">
+
+        @error('image')
         <p class="text-red-500 text-xs italic mt-4">
             {{ $message }}
         </p>

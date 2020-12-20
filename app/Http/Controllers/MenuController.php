@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -38,9 +40,23 @@ class MenuController extends Controller
         return view('menu.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        Menu::create($this->validateMenuItem());
+        if($request->hasFile('image'))
+        {
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $imageName = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('image')->storeAs('public/menu_images',$imageName);
+        }
+
+        $this->validateMenuItem();
+        $item = new Menu(request(['dish_name', 'description', 'allergy','price','category']));
+        $item->image = $imageName;
+        $item->save();
+
+        //Menu::create();
         return redirect()->route('menu.index');
     }
 
@@ -56,6 +72,7 @@ class MenuController extends Controller
 
     public function update(Menu $menuItem)
     {
+
         $menuItem->update($this->validateMenuItem());
         return redirect()->route('menu.index');
     }
@@ -74,6 +91,7 @@ class MenuController extends Controller
             'allergy' => ['required'],
             'price' => ['required', 'max:5', 'min:4'],
             'category' =>[],
+            'image'  => ['image','nullable','max:1999']
         ]);
     }
 
