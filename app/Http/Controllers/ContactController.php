@@ -16,7 +16,6 @@ class ContactController extends Controller
     public function store(Request $request){
 
         $emailContents = $request;
-
         Mail::to('complaints@huddersfield-cafe.com')
             ->send(new ContactUs($emailContents));
 

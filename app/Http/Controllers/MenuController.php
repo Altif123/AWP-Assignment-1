@@ -35,6 +35,7 @@ class MenuController extends Controller
             'menu' => Menu::where('dish_name', 'LIKE', '%'.$request->searchTerm .'%')->get()]);
     }
 
+
     public function create()
     {
         return view('menu.create');
@@ -44,13 +45,8 @@ class MenuController extends Controller
     {
         if($request->hasFile('image'))
         {
-            $filenameWithExt = $request->file('image')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $imageName = $filename.'_'.time().'.'.$extension;
-            $path = $request->file('image')->storeAs('public/menu_images',$imageName);
+            $imageName = $this->imageUpload($request);
         }
-
         $this->validateMenuItem();
         $item = new Menu(request(['dish_name', 'description', 'allergy','price','category']));
         $item->image = $imageName;
@@ -70,10 +66,17 @@ class MenuController extends Controller
         return view('menu.update', compact('menuItem'));
     }
 
-    public function update(Menu $menuItem)
+    public function update(Menu $menuItem,Request $request)
     {
+        if(isset($request->image))
+        {
+            $imageName = $this->imageUpload($request);
 
-        $menuItem->update($this->validateMenuItem());
+        }
+        $menuItem->update(request(['dish_name', 'description', 'allergy','price','category']));
+        $menuItem->image = $imageName;
+        $menuItem->save();
+
         return redirect()->route('menu.index');
     }
 
@@ -93,6 +96,16 @@ class MenuController extends Controller
             'category' =>[],
             'image'  => ['image','nullable','max:1999']
         ]);
+    }
+    public function imageUpload($request){
+        $filenameWithExt = $request->file('image')->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileName = $filename.'_'.time().'.'.$extension;
+        $request->file('image')->storeAs('public/menu_images',$fileName);
+
+        return $fileName;
+
     }
 
 }

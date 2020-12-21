@@ -8,7 +8,7 @@
             </h1>
 
             <form action="{{route('menu.update',$menuItem)}}}" class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8"
-                  method="POST">
+                  method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 @include('_partials.menuForm',['item' => $menuItem])
