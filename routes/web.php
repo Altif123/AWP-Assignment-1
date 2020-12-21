@@ -50,4 +50,5 @@ Route::middleware ('auth') -> group (function () {
 
     Route::get('basket', [App\Http\Controllers\OrderController::class, 'show'])->name('order.show');
 
+    Route::delete('order/{item}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.delete');
 });

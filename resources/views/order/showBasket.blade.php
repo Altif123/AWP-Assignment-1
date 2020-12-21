@@ -7,8 +7,7 @@
             <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Basket
             </h1>
-
-
+            <x-flashMessage/>
             <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
                 @foreach($items as $item)
                     @include('_partials.itemCard')

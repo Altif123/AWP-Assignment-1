@@ -14,7 +14,7 @@ class OrderController extends Controller
         // add cart items to a specific user
         //$userId = auth()->user()->id; // or any string represents user identifier
         \Cart::add(array(
-            'id' => rand(1,1000),
+            'id' => $item->id,
             'name' => $item->dish_name,
             'price' => $item->price,
             'quantity' => 1,
@@ -22,6 +22,9 @@ class OrderController extends Controller
                 'image' => $item->image
             )
         ));
+
+        return redirect(route('order.show'))
+            ->with('message','Added to order');
 
     }
 
@@ -31,9 +34,15 @@ class OrderController extends Controller
         return view('order.showBasket',compact('items'));
     }
 
-    public function remove()
+    public function destroy($item)
     {
-       //
+        \Cart::remove($item);
+        return redirect(route('order.show'));
+    }
+
+    public function store()
+    {
+        //store the order to the DB
     }
 
 }

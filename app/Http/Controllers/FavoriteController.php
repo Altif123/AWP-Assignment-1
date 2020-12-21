@@ -17,7 +17,6 @@ class FavoriteController extends Controller
 
     public function store($menuItem)
     {
-
         $favorite = new Favorite();
         $favorite->favorites()->attach(auth()->user()->id, ['menu_id' => $menuItem]);
         return redirect()->route('favorites.index');
