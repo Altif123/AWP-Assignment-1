@@ -46,4 +46,8 @@ Route::middleware ('auth') -> group (function () {
 
     Route::post('contact-us/store', [App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 
+    Route::post('order/{menuItem}', [App\Http\Controllers\OrderController::class, 'addToOrder'])->name('order.add');
+
+    Route::get('basket', [App\Http\Controllers\OrderController::class, 'show'])->name('order.show');
+
 });

@@ -48,6 +48,14 @@
                     </button>
                 </form>
             </div>
+                <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <form method="POST" action="{{route('order.add',[$menuItem])}}">
+                        @csrf
+                        <button type="submit" role="button">
+                            <i class="fas fa-plus inline crud-button cursor-pointer px-3 py-2"> Add to order</i>
+                        </button>
+                    </form>
+                </div>
         </div>
         </article>
         <x-backBtn/>

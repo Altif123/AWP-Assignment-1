@@ -71,7 +71,6 @@ class MenuController extends Controller
         if(isset($request->image))
         {
             $imageName = $this->imageUpload($request);
-
         }
         $menuItem->update(request(['dish_name', 'description', 'allergy','price','category']));
         $menuItem->image = $imageName;
