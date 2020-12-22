@@ -28,9 +28,9 @@ class User extends Authenticatable
 
         return $this->belongsToMany(Menu::class, 'favorite_user');
     }
+
     public function getAvatarUrlAttribute(){
         return Gravatar::get($this->email);
-
     }
 
     public function Roles(){
@@ -45,7 +45,12 @@ class User extends Authenticatable
 
     public function permissions(){
 
-        return $this-> roles->map->permissions->flatten()->pluck('name')->unique();
+        return $this->roles->map->permissions->flatten()->pluck('name')->unique();
 
     }
+    public function Orders(){
+
+        return $this->hasMany(Order::class);
+    }
 }
+

@@ -52,7 +52,6 @@ class MenuController extends Controller
         $item->image = $imageName;
         $item->save();
 
-        //Menu::create();
         return redirect()->route('menu.index');
     }
 

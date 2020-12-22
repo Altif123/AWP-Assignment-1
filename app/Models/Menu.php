@@ -15,8 +15,13 @@ class Menu extends Model
 
     public function favorites()
     {
-
         return $this->belongsToMany(User::class, 'favorite_user');
+    }
+
+    public function orders()
+    {
+
+        return $this->hasMany(Order::class);
     }
 
 }

@@ -50,5 +50,9 @@ Route::middleware ('auth') -> group (function () {
 
     Route::get('basket', [App\Http\Controllers\OrderController::class, 'show'])->name('order.show');
 
-    Route::delete('order/{item}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.delete');
+    Route::delete('order/{item}', [App\Http\Controllers\OrderController::class, 'removeFromBasket'])->name('order.delete');
+
+    Route::post('order/store/{items}', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
+
+    Route::get('orders', [App\Http\Controllers\orderController::class, 'index'])->name('order.index');
 });
