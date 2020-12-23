@@ -30,7 +30,8 @@
     <nav class="bg-background-nav py-6">
         <div class="container mx-auto flex justify-between items-center px-6">
             <div>
-                <a href="{{ url('/') }} "aria-label="Go to home page" class="text-lg font-semibold text-gray-100 no-underline">
+                <a href="{{ url('/') }} " aria-label="Go to home page"
+                   class="text-lg font-semibold text-gray-100 no-underline">
                     {{ config('app.name') }}
                 </a>
             </div>
@@ -68,7 +69,8 @@
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
                                href="{{route('menu.index')}}" aria-label="Go to menu listing page">Menu</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                               href="{{route('favorites.index')}}" aria-label="Go to favorites listing page">Favorites</a>
+                               href="{{route('favorites.index')}}"
+                               aria-label="Go to favorites listing page">Favorites</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="{{route('profile.show')}}" aria-label="Go to favorites listing page">Profile</a>
                             <a href="{{ route('logout') }}"
@@ -97,7 +99,14 @@
                     style="color:white" x-data
                     @click="$dispatch('toggle-modal')">Help
             </button>
+
+            <div class="flex float right">
+                <img src="{{Auth::user()->avatar_url}}"
+                     class="rounded-full border-solid border-white border-2 -mt-3 object-scale-down ">
+            </div>
+
         </div>
+
     </nav>
     <x-helpModal/>
 
@@ -140,6 +149,7 @@
 
 <script>
     darkModeCheck();
+
     function darkModeCheck() {
         if (docCookies.hasItem("cookieTheme")) {
             document.getElementById('darkModeToggle').checked = true;
@@ -165,9 +175,6 @@
         }
     }
 </script>
-
-
-
 
 
 </body>

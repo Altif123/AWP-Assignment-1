@@ -11,7 +11,9 @@
                 </div>
                 @foreach($user->roles as $role)
                     @isset($role)
-                        {{$role->name}}
+                        <div>
+                            <span class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center text-">{{$role->name}}</span>
+                        </div>
                     @endisset
                 @endforeach
                 <div class="text-center px-3 pb-6 pt-2">
