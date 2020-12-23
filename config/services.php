@@ -38,11 +38,13 @@ return [
     'providers' => [
 
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     'aliases' => [
 
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ]
 
 ];

@@ -50,9 +50,13 @@ Route::middleware ('auth') -> group (function () {
 
     Route::get('basket', [App\Http\Controllers\OrderController::class, 'show'])->name('order.show');
 
-    Route::delete('order/{item}', [App\Http\Controllers\OrderController::class, 'removeFromBasket'])->name('order.delete');
+    Route::delete('order/{item}', [App\Http\Controllers\OrderController::class, 'removeFromBasket'])->name('basket.delete');
 
     Route::post('order/store/{items}', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 
-    Route::get('orders', [App\Http\Controllers\orderController::class, 'index'])->name('order.index');
+    Route::get('orders', [App\Http\Controllers\orderController::class, 'index'])->middleware('can:view_all_orders')->name('order.index');
+
+    Route::delete('order/delete/{itemId}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.delete');
+
+    Route::get('orders/download', [App\Http\Controllers\orderController::class, 'downloadOrders'])->name('order.download');
 });

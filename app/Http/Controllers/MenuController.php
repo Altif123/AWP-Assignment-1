@@ -6,8 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+
 
 class MenuController extends Controller
 {
@@ -16,12 +15,14 @@ class MenuController extends Controller
         return view('menu/index', [
             'menu' => Menu::latest()->get()]);
     }
+
     public function filterByCategory(Request $request)
     {
         $option = $request->category;
         return view('menu/index', [
             'menu' => Menu::where('category', 'LIKE', $option)->get()]);
     }
+
     public function filterByPrice(Request $request)
     {
         $option = $request->price;
@@ -29,6 +30,7 @@ class MenuController extends Controller
         return view('menu/index', [
             'menu' => Menu::where('price', '<=', $option)->get()]);
     }
+
     public function searchByDishName(Request $request)
     {
         return view('menu/index', [

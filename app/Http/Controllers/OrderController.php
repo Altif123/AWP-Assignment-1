@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrdersExport;
 use App\Models\Menu;
 use App\Models\Order;
-use App\Models\User;
-use Darryldecode\Cart\Cart;
-use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class OrderController extends Controller
 {
-    public function addToOrder( $menuItem)
+    public function addToOrder($menuItem)
     {
         $item = Menu::find($menuItem);
         \Cart::add(array(
@@ -24,24 +24,24 @@ class OrderController extends Controller
         ));
 
         return redirect(route('order.show'))
-            ->with('message','Added to order');
+            ->with('message', 'Added to order');
 
     }
 
     public function show()
     {
         $items = \Cart::getContent();
-        return view('order.showBasket',compact('items'));
+        return view('order.showBasket', compact('items'));
     }
 
     public function index()
     {
-       $items= Order::with(['menu'])->get()->pluck('menu');
+        $items = Order::with(['menu', 'user'])->get()->map->only('menu', 'user')->toArray();
 
-       return view('order.index',compact('items'));
+        return view('order.index', compact('items'));
     }
 
-    public function removeFromCart($item)
+    public function removeFromBasket($item)
     {
         \Cart::remove($item);
         return redirect(route('order.show'));
@@ -51,18 +51,22 @@ class OrderController extends Controller
     public function store($items)
     {
         $itemsArray = json_decode($items, true);
-        foreach ($itemsArray as $item){
+        foreach ($itemsArray as $item) {
             $order = new Order();
             $order->menu_id = $item['id'];
             $order->user_id = auth()->user()->id;;
             $order->save();
         }
-        return redirect()->route('order.show') ->with('message','Order confirmed');
+        return redirect()->route('order.show')->with('message', 'Order confirmed');
     }
 
-    public function destroy()
+    public function destroy($itemId)
     {
-
+        $items = Order::where('menu_id', $itemId)->get();
+        foreach ($items as $item) {
+            $item->delete();
+        }
+        return redirect(route('order.index'));
     }
 
 }

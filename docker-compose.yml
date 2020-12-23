@@ -4,7 +4,7 @@ services:
     image: bitnami/mariadb:latest
     container_name: Huddersfield-Cafe-DB
     volumes:
-      - .\docker\mysql\data:/bitnami/mariadb
+      - .\docker\mysql\data:/bitnami/mariadb:delegated
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=test

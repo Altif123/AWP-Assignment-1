@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="OlvNijizVEEnO5WYIJ4CtQOWZyVV5XpLJPIRsBNI">
+
+    <title>Huddersfield Cafe</title>
+    <!-- Scripts -->
+    <script src="http://127.0.0.1:3000/js/app.js" defer></script>
+    <!-- Drop downs -->
+    <script src="http://127.0.0.1:3000/js/alpine.js" defer></script>
+    <!-- Cookies -->
+    <script src="http://127.0.0.1:3000/js/cookies.js"></script>
+    <!-- Styles -->
+    <link href="/css/app.css" rel="stylesheet">
+    <!-- Font Awesome - icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+          integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+          crossorigin="anonymous"/>
+
+</head>
+
+<body class=" theme-light z-20 bg-background-first dark:bg-black h-screen antialiased leading-none font-sans">
+<div id="app">
+    <nav class="bg-background-nav py-6">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div>
+                <a href="http://127.0.0.1:3000 "aria-label="Go to home page" class="text-lg font-semibold text-gray-100 no-underline">
+                    Huddersfield Cafe
+                </a>
+            </div>
+            <div @click.away="open = false" class="relative " x-data="{ open: false }">
+                <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm
+                            font-semibold text-left text-gray-300 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 ">
+                    <span tabindex="0"
+                          role="button"
+                          aria-pressed="false">Menu</span>
+                    <i fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+                       class="fas fa-bars inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"></i>
+                </button>
+                <div x-show="open" x-transition:enter="transition ease-out duration-100"
+                     x-transition:enter-start="transform opacity-0 scale-95"
+                     x-transition:enter-end="transform scale-100"
+                     x-transition:leave="transition ease-in duration-75"
+                     x-transition:leave-start="transform opacity-100 scale-100"
+                     x-transition:leave-end="transform opacity-0 scale-95"
+                     class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 sm:w-60 z-40 ">
+                    <div class="px-2 py-2 bg-background-main rounded-md shadow">
+                                                    <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
+                               href="/" aria-label="Go to home page">Home</a>
+                            <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200"
+                               href="http://127.0.0.1:3000/menu" aria-label="Go to menu listing page">Menu</a>
+                            <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                               href="http://127.0.0.1:3000/favorites" aria-label="Go to favorites listing page">Favorites</a>
+                            <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                               href="http://127.0.0.1:3000/profile" aria-label="Go to favorites listing page">Profile</a>
+                            <a href="http://127.0.0.1:3000/logout"
+                               class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                               onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="http://127.0.0.1:3000/logout" method="POST" class="hidden">
+                                <input type="hidden" name="_token" value="OlvNijizVEEnO5WYIJ4CtQOWZyVV5XpLJPIRsBNI">
+                            </form>
+                            <span class="block px-4 py-2 mt-2 md:text-sm text-xs font-semibold rounded-lg md:mt-0 text-gray-500  focus:text-gray-400  focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                <p>Altif Ali</p>
+                            </span>
+                                                <div class="text-xs" tabindex="0"
+                             role="button"
+                             aria-pressed="false">
+                            <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()"> Toggle dark mode
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <button class="far fa-question-circle sm:text-xs" tabindex="0"
+                    role="button"
+                    style="color:white" x-data
+                    @click="$dispatch('toggle-modal')">Help
+            </button>
+        </div>
+    </nav>
+     <script>
+
+    function helpModalOpen() {
+        return {
+            modal: false,
+            open() {
+                this.modal = true;
+                document.body.classList.add("modal-open");
+            },
+            close() {
+                this.modal = false;
+                document.body.classList.remove("modal-open");
+            },
+            isOpen() {
+                return this.modal === true
+            },
+        }
+    }
+</script>
+
+<div x-data="helpModalOpen()" @toggle-modal.window="modal = !modal">
+    <div class="overflow-auto right-0 space-x-10" style="background-color: rgba(0, 0, 0, 0.75);display:none"
+         x-show="isOpen()"
+         :class="{ 'user-history-modal': isOpen() }">
+        <div class="flex md:justify-center mb-6 bg-white shadow-2xl fixed pin z-40 overflow-auto right-0"
+             x-show="isOpen()" @click.away="close">
+            <div class="top-300 w-full h-full flex items-center justify-center ">
+                <div class="text-left bg-background-main h-auto p-4 md:max-w-xl md:p-6 lg:p-8 shadow-xl rounded mx-2 md:mx-0 z-50">
+                    <h2 class="text-2xl">Help Section</h2>
+                    <p>Hello welcome to the help section which will show you how our site works</p>
+                    <ul class="list-disc m-5 py-2 px-2">
+                        <p class="py-2 px-2 underline"> Menu page </p>
+                        <li> The menu page will allow you view our menu. You can add to the menu by selecting the new
+                            Add New Dish button, this will take you to a page where you can enter a new dish. When
+                            entering a new dish please ensure you fill all the fields.
+                        </li>
+                        <p class="underline"><i class="py-2 px-2 fas fa-edit"></i> Editing/updating </p>
+                        <li> When viewing a dish you can edit dish details, remove the dish from the menu and add the
+                            dish to your favorites using the buttons located at the bottom of the page.
+                        </li>
+                        <p class="underline"><i class="py-2 px-2 fas fa-star"></i> How the favorites page works </p>
+                        <li>If you want to add an dish to your favorites section select the Add to favorites button
+                            if you then visit the favorites page all your favorite dishes will show up there. To remove
+                            from favorites select the delete button.
+                        </li>
+                        <p class="py-2 px-2 underline"> How darkmode works </p>
+                        <li>
+                            If you have any visual impairments you can switch the theme to dark mode which may improve
+                            your experience of the site.
+                            To activate dark mode simply select the check box in the menu drop down
+                            located within the nav bar.
+                        </li>
+                    </ul>
+                    <button class="text-blue-400 " type="button" @click="close">
+                        close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+        <main class="sm:container sm:mx-auto sm:mt-10 ">
+        <div class="w-full sm:px-6">
+            <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:mt-10 sm:text-6xl">
+                All orders
+            </h1>
+             <div class="px-6 pt-4 pb-2 " role="button">
+    <a href="http://127.0.0.1:3000/menu"> <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm
+    font-semibold text-gray-700 mr-2 mb-2 fas fa-arrow-left">Back</span></a>
+</div> 
+            <div class=" bg-background-third rounded-md p-8">
+                <table class="">
+                    <thead class="bg-yellow-300 text-black">
+                    <tr>
+                        <th class="w-1/3 text-left py-3 px-4 font-semibold text-sm border border-black">Customer name</th>
+                        <th class="w-1/3 text-left py-3 px-4 font-semibold text-sm border border-black">Customer Email</th>
+                        <th class="text-left py-3 px-4 font-semibold text-sm border border-black">Dish ordered</th>
+                        <th class="text-left py-3 px-4 font-semibold text-sm border border-black">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                                    <tr>
+                    <td class="px-6 py-4 text-left border border-black">Altif Ali</td>
+                    <td class="px-6 py-4 text-left border border-black">u1751821@unimail.hud.ac.uk</td>
+                    <td class="px-6 py-4 text-left border border-black">Double Cheese Burger</td>
+                    <td class="px-6 py-4 text-left border border-black">
+                        <form method="POST" action="http://127.0.0.1:3000/order/delete/68">
+                            <div class="bg-yellow-400 text-black text-xs  font-bold uppercase rounded">
+                                 <input type="hidden" name="_token" value="OlvNijizVEEnO5WYIJ4CtQOWZyVV5XpLJPIRsBNI"><input type="hidden" name="_method" value="DELETE"><button type="submit" role="button">
+    <i class="fas fa-trash inline crud-button cursor-pointer px-3 py-2">
+        Delete
+    </i>
+</button>
+ 
+                            </div>
+                        </form></td>
+                    </tr>
+
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<footer class="footer bg-background-nav relative mt-40 border-t-10 border-blue-700 z-20">
+    <div class="container mx-auto px-6">
+
+        <div class="sm:flex sm:mt-8">
+            <div class="mt-8 sm:mt-0 sm:w-full sm:px-8 flex flex-col md:flex-row justify-between">
+                <div class="flex flex-col mt-8">
+                    <span class="my-2"><a href="http://127.0.0.1:3000/menu"
+                                          class="text-gray-400 text-md hover:text-blue-500">Menu</a></span>
+                    <span class="my-2"><a href="http://127.0.0.1:3000/favorites"
+                                          class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
+                    <span class="my-2"><a href="/" class="text-gray-400  text-md hover:text-blue-500">Home</a></span>
+                </div>
+                <div class="flex flex-col mt-8">
+                    <span class="my-2"><a href="http://127.0.0.1:3000/login" class="text-gray-400 text-md hover:text-blue-500">Login</a></span>
+                    <span class="my-2"><a href="http://127.0.0.1:3000/register"
+                                          class="text-gray-400 text-md hover:text-blue-500">Register</a></span>
+                    <span class="my-2"><a href="http://127.0.0.1:3000/logout"
+                                          class="text-gray-400 text-md hover:text-blue-500">Logout</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto px-6">
+        <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-gray-400 font-bold mb-2">
+                    © 2020 by Huddersfield Cafe - Altif Ali
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    darkModeCheck();
+    function darkModeCheck() {
+        if (docCookies.hasItem("cookieTheme")) {
+            document.getElementById('darkModeToggle').checked = true;
+        }
+    }
+
+    if (docCookies.hasItem('cookieTheme')) {
+        var element = document.body;
+        element.classList.toggle("theme-dark");
+    }
+
+    function darkModeOn() {
+        var element = document.body;
+        element.classList.toggle("theme-dark");
+
+        var isChecked = document.getElementById('darkModeToggle').checked;
+
+        if (isChecked == true) {
+            docCookies.setItem("cookieTheme", "dark mode on")
+
+        } else {
+            docCookies.removeItem("cookieTheme")
+        }
+    }
+</script>
+
+
+
+
+
+</body>
+</html>

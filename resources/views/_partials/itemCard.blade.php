@@ -28,7 +28,7 @@
                     </form>
                 @endif
                 @if(Route::current()->getName() == 'order.show')
-                    <form method="POST" action="{{route('order.delete',['item'=>$item->id])}}">
+                    <form method="POST" action="{{route('basket.delete',['item'=>$item->id])}}">
                         <div class="bg-gray-800 text-white text-xs  font-bold uppercase rounded">
                             <x-deleteBtn/>
                         </div>

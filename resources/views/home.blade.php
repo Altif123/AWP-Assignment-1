@@ -21,6 +21,13 @@
                                        class="font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Menu</a>
                                     <a href="{{route('favorites.index')}}" aria-label="Go to favorites listing page"
                                        class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Favorites</a>
+                                    <a href="{{route('order.show')}}" aria-label="Go to basket page"
+                                       class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Basket</a>
+                                    @can('view_all_orders')
+                                        <a href="{{route('order.index')}}" aria-label="Go to basket page"
+                                           class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">View
+                                            all orders</a>
+                                    @endcan
                                 </div>
                             </nav>
                         </div>
@@ -29,28 +36,30 @@
                         <div class="mt-10 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                             <div class="sm:text-center lg:text-left">
                                 <article>
-                                <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-t-first sm:text-5xl sm:leading-none md:text-6xl">
-                                    The Coffee of your
-                                    <br class="xl:hidden">
-                                    <span class="text-t-second">dreams</span>
-                                </h2>
-                                <p class="mt-3 text-base text-t-third sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                                    Huddersfield Cafe is located in the town of Huddersfield, on the wonderful New
-                                    street. We are a short stroll from the University.
-                                    <br><br>
-                                    Our restaurant seats 65 persons, evenly split between two dining rooms. Huddersfield
-                                    Cafe opened in 1998 with the “bar” dining room which is appointed in rich red and
-                                    deep tones.
-                                    The “green” dining room and wine vault were added two years later. The “green”
-                                    dining room has a slightly more formal feel than the bar.
-                                    Both dining rooms feature new chairs, wormy maple and knotty alder carpentry,
-                                    luxurious silk and velvet fabrics, and works by local artists.
-                                    All area rugs and carpets are of the finest quality wool. Antique accent pieces
-                                    blend harmoniously with the contemporary vibe
+                                    <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-t-first sm:text-5xl sm:leading-none md:text-6xl">
+                                        The Coffee of your
+                                        <br class="xl:hidden">
+                                        <span class="text-t-second">dreams</span>
+                                    </h2>
+                                    <p class="mt-3 text-base text-t-third sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                        Huddersfield Cafe is located in the town of Huddersfield, on the wonderful New
+                                        street. We are a short stroll from the University.
+                                        <br><br>
+                                        Our restaurant seats 65 persons, evenly split between two dining rooms.
+                                        Huddersfield
+                                        Cafe opened in 1998 with the “bar” dining room which is appointed in rich red
+                                        and
+                                        deep tones.
+                                        The “green” dining room and wine vault were added two years later. The “green”
+                                        dining room has a slightly more formal feel than the bar.
+                                        Both dining rooms feature new chairs, wormy maple and knotty alder carpentry,
+                                        luxurious silk and velvet fabrics, and works by local artists.
+                                        All area rugs and carpets are of the finest quality wool. Antique accent pieces
+                                        blend harmoniously with the contemporary vibe
 
-                                </p>
-                                <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                                </div>
+                                    </p>
+                                    <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                    </div>
                                 </article>
                             </div>
                         </div>
