@@ -73,6 +73,13 @@
                                aria-label="Go to favorites listing page">Favorites</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="{{route('profile.show')}}" aria-label="Go to favorites listing page">Profile</a>
+                            <a href="{{route('order.show')}}" aria-label="Go to basket page"
+                               class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Basket</a>
+                            @can('view_all_orders')
+                                <a href="{{route('order.index')}}" aria-label="Go to basket page"
+                                   class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">View
+                                    all orders</a>
+                            @endcan
                             <a href="{{ route('logout') }}"
                                class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                onclick="event.preventDefault();
@@ -99,11 +106,12 @@
                     style="color:white" x-data
                     @click="$dispatch('toggle-modal')">Help
             </button>
-
-            <div class="flex float right">
-                <img src="{{Auth::user()->avatar_url}}"
-                     class="rounded-full border-solid border-white border-2 -mt-3 object-scale-down ">
-            </div>
+            @if(Auth::check())
+                <div class="flex float right">
+                    <img src="{{Auth::user()->avatar_url}}"
+                         class="rounded-full border-solid border-white border-2 -mt-3 object-scale-down ">
+                </div>
+            @endif
 
         </div>
 
