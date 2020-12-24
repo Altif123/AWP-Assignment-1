@@ -19395,8 +19395,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\altif\Desktop\Uni Final Year\Advanced Web\Assignment\Assignment 1\Huddersfield-cafe\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\altif\Desktop\Uni Final Year\Advanced Web\Assignment\Assignment 1\Huddersfield-cafe\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! /app/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /app/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

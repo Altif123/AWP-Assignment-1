@@ -40,3 +40,4 @@ The url the app will be on is `http://127.0.0.1:8000/`
 - Alpine.js (https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js)
 - Cookie.js (https://github.com/madmurphy/cookies1.js)
 - Font awesome (https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css)
+- StripeJS (src="https://js.stripe.com/v3/")

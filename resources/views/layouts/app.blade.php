@@ -14,8 +14,9 @@
     <script src="{{ asset('js/alpine.js') }}" defer></script>
     <!-- Cookies -->
     <script src="{{ asset('js/cookies.js') }}"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="http://www.jqueryscript.net/demo/jQuery-Plugin-To-Convert-HTML-Table-To-CSV-tabletoCSV/jquery.tabletoCSV.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <!-- Font Awesome - icons -->

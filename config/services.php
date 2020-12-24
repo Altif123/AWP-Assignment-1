@@ -35,16 +35,20 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect' => env('GITHUB_CALLBACK_URL'),
     ],
+    'stripe' => [
+        'secret' => env('STRIPE_SECRET'),
+    ],
+
     'providers' => [
 
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
     ],
 
     'aliases' => [
 
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class
     ]
 
 ];

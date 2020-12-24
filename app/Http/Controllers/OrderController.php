@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\OrdersExport;
+
 use App\Models\Menu;
 use App\Models\Order;
-use Maatwebsite\Excel\Facades\Excel;
 
 
 class OrderController extends Controller
@@ -24,14 +23,15 @@ class OrderController extends Controller
         ));
 
         return redirect(route('order.show'))
-            ->with('message', 'Added to order');
+            ->with('message', 'Added to order successfully');
 
     }
 
     public function show()
     {
         $items = \Cart::getContent();
-        return view('order.showBasket', compact('items'));
+        $cartTotal =\Cart::getTotal();
+        return view('order.showBasket', compact('items','cartTotal'));
     }
 
     public function index()
@@ -57,6 +57,7 @@ class OrderController extends Controller
             $order->user_id = auth()->user()->id;;
             $order->save();
         }
+        \Cart::clear();
         return redirect()->route('order.show')->with('message', 'Order confirmed');
     }
 
