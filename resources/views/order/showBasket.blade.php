@@ -18,12 +18,12 @@
         </form>
 
         <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
+            <div class="float-right inline ">
+                <span class="bg-green-500 text-grey-600 text-xl font-bold rounded p-2">Basket Total: £{{$cartTotal}}</span>
+            </div>
             @foreach($items as $item)
                 @include('_partials.itemCard')
             @endforeach
-                <div class="float-right inline ">
-                    <span class="bg-green-500 text-grey-600 text-xl font-bold rounded p-2">Basket Total: £{{$cartTotal}}</span>
-                </div>
         </div>
     </main>
 @endsection

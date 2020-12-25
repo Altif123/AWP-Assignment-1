@@ -37,7 +37,6 @@ class OrderController extends Controller
     public function index()
     {
         $items = Order::with(['menu', 'user'])->get()->map->only('menu', 'user')->toArray();
-
         return view('order.index', compact('items'));
     }
 
