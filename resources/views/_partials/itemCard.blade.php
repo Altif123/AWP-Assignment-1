@@ -4,7 +4,7 @@
             <div class="w-1/3 bg-cover" style="background-image: url('/storage/menu_images/{{$item->image??$item['attributes']['image']}}')">
             </div>
         @else
-            <div class="w-1/3 bg-cover" style="background-image: url('https://loremflickr.com/320/240/dish,food,steak')">
+            <div class="w-1/3 bg-cover" style="background-image: url('https://loremflickr.com/320/240/dish,food,steak?random={{$item->id}}')">
             </div>
         @endisset
         <div class="w-2/3 p-4 bg-background-fourth">
