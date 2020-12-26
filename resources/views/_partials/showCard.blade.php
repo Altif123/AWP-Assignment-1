@@ -100,8 +100,7 @@
                         </button>
                     </div>
                 </form>
-
-                @isset($menuItem -> reviews)
+                @if($menuItem->reviews->isNotEmpty())
                     <h2>Reviews:</h2>
                     <table class="table-auto">
                         <thead>
@@ -115,19 +114,16 @@
                         <tbody>
                         @foreach($menuItem -> reviews as $review)
                             <tr>
-                                <td class="p-2 text-left">{{$review-> review}}</td>
-                                <td class="p-2 text-left">{{$review-> rating}}</td>
-                                <td class="p-2 text-left">{{$review-> user -> name}}</td>
+                                <td class="p-2 text-left">{{$review->review}}</td>
+                                <td class="p-2 text-left">{{$review->rating}}</td>
+                                <td class="p-2 text-left">{{$review->user->name}}</td>
                             </tr>
-
                         @endforeach
                         </tbody>
                     </table>
-                @endisset
-                @empty($menuItem -> reviews)
+                @else
                     <h2>No reviews yet</h2>
-                @endempty
-
+                @endif
             </div>
         </div>
     </div>
