@@ -10,7 +10,7 @@ class Menu extends Model
     use HasFactory;
     protected $table = 'menu';
 
-    protected $fillable = ['dish_name', 'description', 'allergy', 'price','category','image'];
+    protected $fillable = ['dish_name', 'description', 'allergy', 'price', 'category', 'image'];
 
 
     public function favorites()
@@ -23,5 +23,11 @@ class Menu extends Model
 
         return $this->hasMany(Order::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
 
 }

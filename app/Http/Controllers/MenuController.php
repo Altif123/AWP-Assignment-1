@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Menu;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -37,7 +38,6 @@ class MenuController extends Controller
             'menu' => Menu::where('dish_name', 'LIKE', '%'.$request->searchTerm .'%')->get()]);
     }
 
-
     public function create()
     {
         return view('menu.create');
@@ -59,6 +59,8 @@ class MenuController extends Controller
 
     public function show(Menu $menuItem)
     {
+        //$reviews =
+        //dd($menuItem->getAllReviews($menuItem->id));
         return view('menu.show', compact('menuItem'));
     }
 

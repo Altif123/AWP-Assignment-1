@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Review extends Model
 {
     use HasFactory;
 
@@ -19,9 +19,6 @@ class Order extends Model
         return $this->belongsTo(Menu::class, 'menu_id');
     }
 
-    public function getAllOrders(){
-        $orders = Order::with(['menu', 'user'])->get()->map->only('menu', 'user')->toArray();
-        return $orders;
-    }
-}
+    protected $fillable = ['user_id', 'menu_id', 'review','rating'];
 
+}

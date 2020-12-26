@@ -34,9 +34,9 @@ class OrderController extends Controller
         return view('order.showBasket', compact('items','cartTotal'));
     }
 
-    public function index()
+    public function index(Order $order)
     {
-        $items = Order::with(['menu', 'user'])->get()->map->only('menu', 'user')->toArray();
+        $items = Order::all();
         return view('order.index', compact('items'));
     }
 

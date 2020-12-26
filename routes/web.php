@@ -58,8 +58,9 @@ Route::middleware ('auth') -> group (function () {
 
     Route::delete('order/delete/{itemId}', [App\Http\Controllers\OrderController::class, 'destroy'])->name('order.delete');
 
-    Route::get('orders/download', [App\Http\Controllers\orderController::class, 'downloadOrders'])->name('order.download');
-
     Route::get('/payment', [\App\Http\Controllers\PaymentController::class, 'index'])->name('payment.index');
+
     Route::post('/payment', [\App\Http\Controllers\PaymentController::class, 'processPayment'])->name('payment.process');
+
+    Route::post('review/{menuItem}', [App\Http\Controllers\ReviewController::class, 'store'])->name('review.store');
 });

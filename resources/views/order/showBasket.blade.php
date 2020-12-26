@@ -68,6 +68,7 @@
             </div>
         </section>
     </main>
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
 
         (function () {
@@ -118,7 +119,6 @@
                     }
                 });
             });
-
             function stripeTokenHandler(token) {
                 var form = document.getElementById('payment-form');
                 var hiddenInput = document.createElement('input');

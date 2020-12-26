@@ -27,12 +27,12 @@
 
                 @foreach($items as $item)
                     <tr>
-                        <td class="px-6 py-4 text-left border border-black">{{$item['user']['name']}}</td>
-                        <td class="px-6 py-4 text-left border border-black">{{$item['user']['email']}}</td>
-                        <td class="px-6 py-4 text-left border border-black">{{$item['menu']['dish_name']}}</td>
-                        <td class="px-6 py-4 text-left border border-black">£ {{$item['menu']['price']}}</td>
+                        <td class="px-6 py-4 text-left border border-black">{{$item->user->name}}</td>
+                        <td class="px-6 py-4 text-left border border-black">{{$item->user->name}}</td>
+                        <td class="px-6 py-4 text-left border border-black">{{$item->menu->dish_name}}</td>
+                        <td class="px-6 py-4 text-left border border-black">£ {{$item->menu->price}}</td>
                         <td class="px-6 py-4 text-left border border-black">
-                            <form method="POST" action="{{route('order.delete',$item['menu']['id'])}}">
+                            <form method="POST" action="{{route('order.delete',$item->menu->id)}}">
                                 <div class="bg-yellow-400 text-black text-xs  font-bold uppercase rounded">
                                     <x-deleteBtn/>
                                 </div>

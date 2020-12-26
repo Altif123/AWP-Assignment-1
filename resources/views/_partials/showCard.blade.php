@@ -48,18 +48,93 @@
                     </button>
                 </form>
             </div>
-                <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    <form method="POST" action="{{route('order.add',[$menuItem])}}">
-                        @csrf
-                        <button type="submit" role="button">
-                            <i class="fas fa-plus inline crud-button cursor-pointer px-3 py-2"> Add to order</i>
-                        </button>
-                    </form>
-                </div>
-        </div>
-        </article>
-        <x-backBtn/>
+            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                <form method="POST" action="{{route('order.add',[$menuItem])}}">
+                    @csrf
+                    <button type="submit" role="button">
+                        <i class="fas fa-plus inline crud-button cursor-pointer px-3 py-2"> Add to order</i>
+                    </button>
+                </form>
+            </div>
+            <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                <form method="POST" action="{{route('review.store',[$menuItem])}}">
+                    @csrf
+                    <div class="flex flex-wrap">
+                        <label for="review" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Review ') }}:
+                        </label>
 
+                        <input id="review" type="text" aria-label="Review"
+                               class="form-input w-full @error('review') border-red-500 @enderror" name="review"
+                        >
+
+                        @error('review')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+
+                        <div class="flex flex-wrap">
+                            <label for="rating" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Rating') }}:
+                            </label>
+
+                            <select id="rating" aria-label="rating"
+                                    class="form-input w-full @error('rating') border-red-500 @enderror" name="rating"
+                                    required>
+                                <option value="1/5">1/5</option>
+                                <option value="2/5">2/5</option>
+                                <option value="3/5">3/5</option>
+                                <option value="4/5">4/5</option>
+                                <option value="5/5">5/5</option>
+                            </select>
+
+                            @error('category')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                            @enderror
+                        </div>
+                        <button type="submit" role="button">
+                            <i class="fas fa-plus inline crud-button cursor-pointer px-3 py-2"> Submit review</i>
+                        </button>
+                    </div>
+                </form>
+
+                @isset($menuItem -> reviews)
+                    <h2>Reviews:</h2>
+                    <table class="table-auto">
+                        <thead>
+                        <tr>
+                            <th class="text-left p-2">Review</th>
+                            <th class="text-left p-2">Rating</th>
+                            <th class="text-left p-2">Author</th>
+                            <th class="text-left p-2">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($menuItem -> reviews as $review)
+                            <tr>
+                                <td class="p-2 text-left">{{$review-> review}}</td>
+                                <td class="p-2 text-left">{{$review-> rating}}</td>
+                                <td class="p-2 text-left">{{$review-> user -> name}}</td>
+                            </tr>
+
+                        @endforeach
+                        </tbody>
+                    </table>
+                @endisset
+                @empty($menuItem -> reviews)
+                    <h2>No reviews yet</h2>
+                @endempty
+
+            </div>
+        </div>
     </div>
+
+
+    <x-backBtn/>
+
+</div>
 </div>
 </div>
