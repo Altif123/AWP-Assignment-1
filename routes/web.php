@@ -63,4 +63,6 @@ Route::middleware ('auth') -> group (function () {
     Route::post('/payment', [\App\Http\Controllers\PaymentController::class, 'processPayment'])->name('payment.process');
 
     Route::post('review/{menuItem}', [App\Http\Controllers\ReviewController::class, 'store'])->name('review.store');
+
+    Route::delete('review/{menuItem}', [App\Http\Controllers\ReviewController::class, 'destroy'])->name('review.delete');
 });

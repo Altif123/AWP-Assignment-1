@@ -119,7 +119,7 @@
                                 <td class="p-2 text-left">{{$review->user->name}}/{{$review->user->id}}</td>
                                 @can('delete_review')
                                     <td class="p-2 text-left">
-                                        <form method="POST" action="{{}}">
+                                        <form method="POST" action="{{route('review.delete',$review)}}">
                                             <div class="bg-yellow-400 text-black text-xs  font-bold uppercase rounded">
                                                 <x-deleteBtn/>
                                             </div>

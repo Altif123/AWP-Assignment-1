@@ -31,6 +31,11 @@ class ReviewController extends Controller
 //        ]);
         return redirect()->route('menu.index');
     }
+    public function destroy(Review $reviews,$review)
+    {
+        $reviews->where(['id'=>$review])->delete();
+        return redirect()->route('menu.index');
+    }
 
 
 }
