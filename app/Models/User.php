@@ -24,38 +24,52 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getFavorites(){
+    public function getFavorites()
+    {
 
         return $this->belongsToMany(Menu::class, 'favorite_user');
     }
 
-    public function getAvatarUrlAttribute(){
+    public function getAvatarUrlAttribute()
+    {
         return Gravatar::get($this->email);
     }
 
-    public function Roles(){
+    public function Roles()
+    {
 
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
-    public function assignRole($role){
+    public function assignRole($role)
+    {
 
-        $this->roles()->sync($role,false);
+        $this->roles()->sync($role, false);
     }
 
-    public function permissions(){
+    public function permissions()
+    {
 
         return $this->roles->map->permissions->flatten()->pluck('name')->unique();
 
     }
-    public function Orders(){
+
+    public function Orders()
+    {
 
         return $this->hasMany(Order::class);
     }
-    public function getAllOrders(){
+
+    public function getAllOrders()
+    {
 
         return Order::with(['menu'])->get()->pluck('menu');
 
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
 }

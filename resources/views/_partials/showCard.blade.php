@@ -33,7 +33,7 @@
                     </form>
                 </div>
             @endcan
-            @can('delete_menu_item')
+            @can('edit_menu_item')
                 <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     <a href="{{route('menu.edit',$menuItem)}}" aria-label="Edit this item">
                         <i class="fas fa-edit inline cursor-pointer px-3 py-2">Edit </i>
@@ -116,7 +116,19 @@
                             <tr>
                                 <td class="p-2 text-left">{{$review->review}}</td>
                                 <td class="p-2 text-left">{{$review->rating}}</td>
-                                <td class="p-2 text-left">{{$review->user->name}}</td>
+                                <td class="p-2 text-left">{{$review->user->name}}/{{$review->user->id}}</td>
+                                @can('delete_review')
+                                    <td class="p-2 text-left">
+                                        <form method="POST" action="{{}}">
+                                            <div class="bg-yellow-400 text-black text-xs  font-bold uppercase rounded">
+                                                <x-deleteBtn/>
+                                            </div>
+                                        </form>
+
+                                    </td>
+                                @else
+                                    <td class="p-2 text-left">cant delete</td>
+                                @endcan
                             </tr>
                         @endforeach
                         </tbody>
@@ -124,6 +136,7 @@
                 @else
                     <h2>No reviews yet</h2>
                 @endif
+
             </div>
         </div>
     </div>

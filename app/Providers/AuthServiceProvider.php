@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Menu;
+use App\Models\Review;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -25,8 +29,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+
         Gate::before(function ($user,$permission){
             return $user->permissions()->contains($permission);
         });
+
+        Gate::define('updateReview', function (User $user, Review $review){
+            return true;
+            //dd($review -> user -> is($user));
+            //return $review -> user -> is($user);
+        });
+
+
     }
 }

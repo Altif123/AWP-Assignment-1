@@ -20,15 +20,6 @@ class CreatePaymentsTable extends Migration
             $table->decimal('amount');
             $table->timestamps();
 
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-
-            $table->foreign('menu_id')
-                ->references('id')
-                ->on('menu')
-                ->onDelete('cascade');
         });
     }
 

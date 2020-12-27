@@ -7,6 +7,7 @@ use App\Models\Menu;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Gate;
 
 
 class MenuController extends Controller
@@ -59,8 +60,6 @@ class MenuController extends Controller
 
     public function show(Menu $menuItem)
     {
-        //$reviews =
-        //dd($menuItem->getAllReviews($menuItem->id));
         return view('menu.show', compact('menuItem'));
     }
 
