@@ -65,4 +65,6 @@ Route::middleware ('auth') -> group (function () {
     Route::post('review/{menuItem}', [App\Http\Controllers\ReviewController::class, 'store'])->name('review.store');
 
     Route::delete('review/{menuItem}', [App\Http\Controllers\ReviewController::class, 'destroy'])->name('review.delete');
+
+    Route::get('feed', [App\Http\Controllers\FeedController::class, 'index'])->name('feed.index');
 });

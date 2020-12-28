@@ -16,7 +16,7 @@
                             height="450"
                             frameborder="0" style="border:0"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBy6q3uT7Aowry6z0t58QuVkllZmCaq7-A
-    &q=Coffeevolution,Huddersfiled+UK" allowfullscreen>
+    &q=Coffeevolution,Huddersfeiled+UK" allowfullscreen>
                     </iframe>
                     <a href="https://www.google.com/maps/place/Coffeevolution/@53.647599,-1.781867,1066m/data=!3m1!1e3!4m5!3m4!1s0x0:0x3ccf176ea896f5b!8m2!3d53.6475988!4d-1.781867?hl=en-US"
                     <div class="flex flex-wrap ">

@@ -94,7 +94,7 @@ class MenuController extends Controller
             'description' => ['required'],
             'allergy' => ['required'],
             'price' => ['required', 'max:5', 'min:4'],
-            'category' =>[],
+            'category' =>['required'],
             'image'  => ['image','nullable','max:1999']
         ]);
     }

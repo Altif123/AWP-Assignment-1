@@ -67,10 +67,10 @@
                 </div>
                 <div class="pb-5">
                 <div class="form-row ">
-                    <label for="card_area" class="block text-gray-700 pt-2 text-sm font-bold mb-2 sm:mb-4">
+                    <label for="card" class="block text-gray-700 pt-2 text-sm font-bold mb-2 sm:mb-4">
                         Credit or debit card
                     </label>
-                    <div id="card_element" class="form-input ">
+                    <div id="card" class="form-input ">
                     </div>
                     <div id="card_errors" role="alert"></div>
                 </div>
@@ -105,12 +105,11 @@
                     iconColor: '#fa755a'
                 }
             };
-            // Create an instance of the card Element
             var card = elements.create('card', {
                 style: style,
                 hidePostalCode: true
             });
-            card.mount('#card_area');
+            card.mount('#card');
             card.addEventListener('change', function (event) {
                 var showError = document.getElementById('card_errors');
                 if (event.error) {

@@ -36,6 +36,8 @@ Then you will need to run the following commands in the terminal to install the 
 Then run `> php artisan serve` to start the server 
 
 The url the app will be on is `http://127.0.0.1:8000/`
+
+When using Docker the url will be `http://127.0.0.1:3000/`
 ### Libraries used 
 - Alpine.js (https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js)
 - Cookie.js (https://github.com/madmurphy/cookies1.js)

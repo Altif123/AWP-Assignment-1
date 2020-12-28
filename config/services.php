@@ -41,14 +41,14 @@ return [
 
     'providers' => [
 
-        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        willvincent\Feeds\FeedsServiceProvider::class,
     ],
 
     'aliases' => [
 
-        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
-        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class
+        'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'Feeds'    => willvincent\Feeds\Facades\FeedsFacade::class,
     ]
 
 ];
