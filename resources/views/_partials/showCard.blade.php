@@ -108,7 +108,7 @@
                             <th class="text-left p-2">Review</th>
                             <th class="text-left p-2">Rating</th>
                             <th class="text-left p-2">Author</th>
-                            <th class="text-left p-2">Actions</th>
+                            <th class="text-left p-2"></th>
                         </tr>
                         </thead>
                         <tbody>

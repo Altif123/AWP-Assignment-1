@@ -43,21 +43,36 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('payment.process') }}" method="post" id="payment-form">
+            <form action="{{ route('payment.process') }}" method="post" id="payment_form">
                 @csrf
                 <div class="flex flex-wrap pt-2">
                     <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Name on Card</label>
                     <input class="form-input w-full @error('name')  border-red-500 @enderror" size="4" id="name"
                            type='text'>
                 </div>
+                <div class="flex flex-wrap pt-2">
+                    <label for="address" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Address</label>
+                    <input class="form-input w-full @error('address')  border-red-500 @enderror" size="4" id="address"
+                           type='text'>
+                </div>
+                <div class="flex flex-wrap pt-2">
+                    <label for="city" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">City</label>
+                    <input class="form-input w-full @error('city')  border-red-500 @enderror" size="4" id="city"
+                           type='text'>
+                </div>
+                <div class="flex flex-wrap pt-2">
+                    <label for="post_code" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Post Code</label>
+                    <input class="form-input w-full @error('post_code')  border-red-500 @enderror" size="4" id="post_code"
+                           type='text'>
+                </div>
                 <div class="pb-5">
                 <div class="form-row ">
-                    <label for="card-element" class="block text-gray-700 pt-2 text-sm font-bold mb-2 sm:mb-4">
+                    <label for="card_area" class="block text-gray-700 pt-2 text-sm font-bold mb-2 sm:mb-4">
                         Credit or debit card
                     </label>
-                    <div id="card-element" class="form-input ">
+                    <div id="card_element" class="form-input ">
                     </div>
-                    <div id="card-errors" role="alert"></div>
+                    <div id="card_errors" role="alert"></div>
                 </div>
                 </div>
                 <button class="select-none align-center  font-bold whitespace-no-wrap p-3 rounded-lg text-base
@@ -95,32 +110,36 @@
                 style: style,
                 hidePostalCode: true
             });
-            card.mount('#card-element');
+            card.mount('#card_area');
             card.addEventListener('change', function (event) {
-                var displayError = document.getElementById('card-errors');
+                var showError = document.getElementById('card_errors');
                 if (event.error) {
-                    displayError.textContent = event.error.message;
+                    showError.textContent = event.error.message;
                 } else {
-                    displayError.textContent = '';
+                    showError.textContent = '';
                 }
             });
-            var form = document.getElementById('payment-form');
+            var form = document.getElementById('payment_form');
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
                 var options = {
                     name: document.getElementById('name').value,
+                    address_line1: document.getElementById('address').value,
+                    address_city: document.getElementById('city').value,
+                    address_zip: document.getElementById('post_code').value,
                 }
                 stripe.createToken(card, options).then(function (result) {
-                    if (result.error) {
-                        var errorElement = document.getElementById('card-errors');
-                        errorElement.textContent = result.error.message;
+                    if (!result.error) {
+                        stripeTokenAppend(result.token);
                     } else {
-                        stripeTokenHandler(result.token);
+                        var errors = document.getElementById('card_errors');
+                        errors.textContent = result.error.message;
+
                     }
                 });
             });
-            function stripeTokenHandler(token) {
-                var form = document.getElementById('payment-form');
+            function stripeTokenAppend(token) {
+                var form = document.getElementById('payment_form');
                 var hiddenInput = document.createElement('input');
                 hiddenInput.setAttribute('type', 'hidden');
                 hiddenInput.setAttribute('name', 'stripeToken');

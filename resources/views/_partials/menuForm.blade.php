@@ -57,7 +57,7 @@
             {{ __('Price') }}:
         </label>
 
-        <input id="price" type="price" aria-label="Price"
+        <input id="price" aria-label="Price"
                class="form-input w-full @error('password') border-red-500 @enderror" name="price"
                required autocomplete="price" placeholder="example 10.00" value="{{old('price')??$item -> price??''}}">
 
