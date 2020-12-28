@@ -27,9 +27,9 @@ class UserController extends Controller
     protected function validateUser()
     {
         return request()->validate([
-            'name' => [ ],
-            'email' => [ ],
-            'password' => [ ],
+            'name' => ['required' ],
+            'email' => ['required'],
+            'password' => ['required'],
         ]);
     }
 }

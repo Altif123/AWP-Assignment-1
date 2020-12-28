@@ -23,6 +23,8 @@
                                        class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Favorites</a>
                                     <a href="{{route('order.show')}}" aria-label="Go to basket page"
                                        class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">Basket</a>
+                                    <a href="{{route('feed.index')}}" aria-label="Go news feed page"
+                                       class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">News Feed</a>
                                     @can('view_all_orders')
                                         <a href="{{route('order.index')}}" aria-label="Go to basket page"
                                            class="ml-8 font-medium text-t-third hover:text-gray-900 transition duration-150 ease-in-out">View

@@ -74,7 +74,14 @@
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="{{route('profile.show')}}" aria-label="Go to favorites listing page">Profile</a>
                             <a href="{{route('order.show')}}" aria-label="Go to basket page"
-                               class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">Basket</a>
+                               class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Basket</a>
+                            <a href="{{route('contact.show')}}" aria-label="Go to contact us page"
+                               class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                Contact-us</a>
+                            <a href="{{route('feed.index')}}" aria-label="Go to news feed page"
+                               class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                News Feed</a>
                             @can('view_all_orders')
                                 <a href="{{route('order.index')}}" aria-label="Go to all orders page"
                                    class="block px-4 py-2 mt-2 text-sm font-semibold rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
@@ -133,6 +140,7 @@
                     <span class="my-2"><a href="{{route("favorites.index")}}"
                                           class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
                     <span class="my-2"><a href="/" class="text-gray-400  text-md hover:text-blue-500">Home</a></span>
+                    <span class="my-2"><a href="{{route("contact.show")}}" class="text-gray-400  text-md hover:text-blue-500">Contact-us</a></span>
                 </div>
                 <div class="flex flex-col mt-8">
                     <span class="my-2"><a href="{{route("login")}}" class="text-gray-400 text-md hover:text-blue-500">Login</a></span>

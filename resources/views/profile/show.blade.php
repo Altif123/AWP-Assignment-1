@@ -48,7 +48,7 @@
                             <input id="email" type="email"
                                    class="form-input w-full bg-background-fourth @error('email') border-red-500 @enderror"
                                    name="email"
-                                   value="{{old('name')??$user -> email}}"
+                                   value="{{old('email')??$user -> email}}"
                                    placeholder="{{$user->email}}">
 
                             @error('email')

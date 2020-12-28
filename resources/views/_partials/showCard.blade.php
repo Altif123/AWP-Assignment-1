@@ -116,7 +116,7 @@
                             <tr>
                                 <td class="p-2 text-left">{{$review->review}}</td>
                                 <td class="p-2 text-left">{{$review->rating}}</td>
-                                <td class="p-2 text-left">{{$review->user->name}}/{{$review->user->id}}</td>
+                                <td class="p-2 text-left">{{$review->user->name}}</td>
                                 @can('delete_review')
                                     <td class="p-2 text-left">
                                         <form method="POST" action="{{route('review.delete',$review)}}">
@@ -124,10 +124,7 @@
                                                 <x-deleteBtn/>
                                             </div>
                                         </form>
-
                                     </td>
-                                @else
-                                    <td class="p-2 text-left">cant delete</td>
                                 @endcan
                             </tr>
                         @endforeach
