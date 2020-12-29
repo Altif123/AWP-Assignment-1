@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Menu;
 use App\Models\Order;
+use function PHPUnit\Framework\isEmpty;
 
 
 class OrderController extends Controller
@@ -28,8 +30,8 @@ class OrderController extends Controller
     public function show()
     {
         $items = \Cart::getContent();
-        $cartTotal =\Cart::getTotal();
-        return view('order.showBasket', compact('items','cartTotal'));
+        $cartTotal = \Cart::getTotal();
+        return view('order.showBasket', compact('items', 'cartTotal'));
     }
 
     public function index(Order $order)
@@ -47,15 +49,20 @@ class OrderController extends Controller
 
     public function store($items)
     {
-        $itemsArray = json_decode($items, true);
-        foreach ($itemsArray as $item) {
-            $order = new Order();
-            $order->menu_id = $item['id'];
-            $order->user_id = auth()->user()->id;;
-            $order->save();
+        if (!isEmpty($items)){
+            $itemsArray = json_decode($items, true);
+            foreach ($itemsArray as $item) {
+                $order = new Order();
+                $order->menu_id = $item['id'];
+                $order->user_id = auth()->user()->id;;
+                $order->save();
+            }
+            \Cart::clear();
+            return redirect()->route('order.show')->with('message', 'Order confirmed');
+
+        }else{
+            return redirect()->route('order.show')->withErrors( 'Please add items to the cart');
         }
-        \Cart::clear();
-        return redirect()->route('order.show')->with('message', 'Order confirmed');
     }
 
     public function destroy($itemId)

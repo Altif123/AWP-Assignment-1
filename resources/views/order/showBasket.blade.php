@@ -2,12 +2,14 @@
 
 @section('content')
     <main class="sm:container sm:mx-auto sm:mt-10">
+        <x-flashMessage/>
+        <x-errorMessage/>
         <div class="w-full sm:px-6">
 
             <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Basket
             </h1>
-            <x-flashMessage/>
+
         </div>
         <div class="float-right pb-3">
             <span class="bg-green-500 text-grey-600 text-xl font-bold rounded p-3">Basket Total: £{{$cartTotal}}</span>
@@ -22,8 +24,6 @@
                     Confirm order for in-store collection</i>
             </button>
         </form>
-
-
         <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
             @foreach($items as $item)
                 @include('_partials.itemCard')
@@ -37,16 +37,6 @@
                     {{ __('Enter card details to pay online') }}
                 </header>
             </div>
-            @if(count($errors) > 0)
-                <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">ERROR</div>
-                <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{!! $error !!}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <form action="{{ route('payment.process') }}" method="post" id="payment_form">
                 @csrf
                 <div class="flex flex-wrap pt-2">
