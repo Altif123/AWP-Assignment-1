@@ -263,7 +263,6 @@
 <body>
 <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
     <tr>
-        <td>&nbsp;</td>
         <td class="container">
             <div class="content">
                 <table role="presentation" class="main">
@@ -275,7 +274,6 @@
                                         <p>Name: {{$emailContents->name}}</p>
                                         <p>Subject: {{$emailContents->subject}}</p>
                                         <p>Message: {{$emailContents->message}}</p>
-                                        <p>testing </p>
                                     </td>
                                 </tr>
                             </table>

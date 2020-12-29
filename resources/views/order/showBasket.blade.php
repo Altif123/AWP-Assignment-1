@@ -12,13 +12,17 @@
         <div class="float-right pb-3">
             <span class="bg-green-500 text-grey-600 text-xl font-bold rounded p-3">Basket Total: £{{$cartTotal}}</span>
         </div>
-
+        <div class="float-right pr-5">
+            <x-basketHelpModal/>
+        </div>
         <form method="POST" action="order/store/{{$items}}">
             @csrf
             <button type="submit" role="button">
-                <i class="fas fa-plus inline bg-green-500 text-grey-600 text-xl font-bold rounded p-3 crud-button cursor-pointer px-3 py-2"> Confirm</i>
+                <i class="fas fa-plus inline bg-green-500 text-grey-600 text-xl font-bold rounded p-3 crud-button cursor-pointer px-3 py-2">
+                    Confirm order for in-store collection</i>
             </button>
         </form>
+
 
         <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
             @foreach($items as $item)
@@ -30,7 +34,7 @@
             <div class="flex flex-col w-1/2  py-8 px-8 break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
             <div class=" justify-content-center">
                 <header class="font-semibold text-2xl bg-background-header text-t-fourth py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    {{ __('Payment') }}
+                    {{ __('Enter card details to pay online') }}
                 </header>
             </div>
             @if(count($errors) > 0)
