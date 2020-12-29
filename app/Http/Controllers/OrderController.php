@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Order;
 use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 
 class OrderController extends Controller
@@ -49,8 +50,8 @@ class OrderController extends Controller
 
     public function store($items)
     {
-        if (!isEmpty($items)){
-            $itemsArray = json_decode($items, true);
+        $itemsArray = json_decode($items, true);
+        if (count($itemsArray)>0){
             foreach ($itemsArray as $item) {
                 $order = new Order();
                 $order->menu_id = $item['id'];
