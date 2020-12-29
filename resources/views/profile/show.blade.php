@@ -16,6 +16,11 @@
                         </div>
                     @endisset
                 @endforeach
+                <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    <form method="POST" action="{{route('profile.delete')}}">
+                        <x-deleteBtn/>
+                    </form>
+                </div>
                 <div class="text-center px-3 pb-6 pt-2">
                     <form action="{{route('profile.update',$user)}}}"
                           class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8"

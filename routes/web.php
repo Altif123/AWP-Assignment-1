@@ -34,6 +34,8 @@ Route::middleware ('auth') -> group (function () {
 
     Route::get('profile', [App\Http\Controllers\UserController::class, 'show'])->name('profile.show');
 
+    Route::delete('profile/delete', [App\Http\Controllers\UserController::class, 'destroy'])->name('profile.delete');
+
     Route::put('profile/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
 
     Route::post('filterByCategory', [App\Http\Controllers\MenuController::class, 'filterByCategory'])->name('filterByCategory');

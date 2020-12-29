@@ -28,7 +28,7 @@
                 @foreach($items as $item)
                     <tr>
                         <td class="px-6 py-4 text-left border border-black">{{$item->user->name}}</td>
-                        <td class="px-6 py-4 text-left border border-black">{{$item->user->name}}</td>
+                        <td class="px-6 py-4 text-left border border-black">{{$item->user->email}}</td>
                         <td class="px-6 py-4 text-left border border-black">{{$item->menu->dish_name}}</td>
                         <td class="px-6 py-4 text-left border border-black">£ {{$item->menu->price}}</td>
                         <td class="px-6 py-4 text-left border border-black">

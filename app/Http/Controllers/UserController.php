@@ -29,8 +29,10 @@ class UserController extends Controller
 
     public function destroy()
     {
-        //delete account
+        auth()->user()->delete();
+        return redirect()->route('login');
     }
+
     protected function validateUser()
     {
         return request()->validate([

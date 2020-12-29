@@ -60,7 +60,6 @@ class OrderController extends Controller
             }
             \Cart::clear();
             return redirect()->route('order.show')->with('message', 'Order confirmed');
-
         }else{
             return redirect()->route('order.show')->withErrors( 'Please add items to the cart');
         }

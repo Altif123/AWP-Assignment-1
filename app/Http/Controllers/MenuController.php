@@ -46,13 +46,13 @@ class MenuController extends Controller
 
     public function store(Request $request)
     {
+        $this->validateMenuItem();
+        $item = new Menu(request(['dish_name', 'description', 'allergy','price','category']));
         if($request->hasFile('image'))
         {
             $imageName = $this->imageUpload($request);
+            $item->image = $imageName;
         }
-        $this->validateMenuItem();
-        $item = new Menu(request(['dish_name', 'description', 'allergy','price','category']));
-        $item->image = $imageName;
         $item->save();
 
         return redirect()->route('menu.index');
@@ -70,13 +70,14 @@ class MenuController extends Controller
 
     public function update(Menu $menuItem,Request $request)
     {
+        $menuItem->update(request(['dish_name', 'description', 'allergy','price','category']));
         if(isset($request->image))
         {
             $imageName = $this->imageUpload($request);
+            $menuItem->image = $imageName;
+            $menuItem->save();
         }
-        $menuItem->update(request(['dish_name', 'description', 'allergy','price','category']));
-        $menuItem->image = $imageName;
-        $menuItem->save();
+
 
         return redirect()->route('menu.index');
     }

@@ -17,7 +17,7 @@
             <div class="my-2 flex sm:flex-row flex-col">
                 <div class="flex flex-row mb-1 sm:mb-0">
 
-                    <form method="GET" action="{{route('filterByCategory')}}">
+                    <form method="POST" action="{{route('filterByCategory')}}">
                         @csrf
                         <div class="relative text-gray-600 focus-within:text-gray-400">
 
