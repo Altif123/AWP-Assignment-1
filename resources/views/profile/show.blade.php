@@ -12,11 +12,11 @@
                 @foreach($user->roles as $role)
                     @isset($role)
                         <div>
-                            <span class="inline-flex bg-purple-600 text-white rounded-full h-6 px-3 justify-center items-center text-">{{$role->name}}</span>
+                            <span class="inline-flex bg-purple-600 text-white rounded-full px-3 py-1 justify-center items-center text-">{{$role->name}}</span>
                         </div>
                     @endisset
                 @endforeach
-                <div class="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                <div class="inline-flex float-right bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                     <form method="POST" action="{{route('profile.delete')}}">
                         <x-deleteBtn/>
                     </form>

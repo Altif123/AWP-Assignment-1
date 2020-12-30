@@ -10,13 +10,13 @@ class Role extends Model
     protected $guarded = [];
     use HasFactory;
 
-    public function permissions(){
-
+    public function permissions()
+    {
         return $this->belongsToMany(Permission::class)->withTimestamps();
     }
 
-    public function allowTo($permission){
-
+    public function allowTo($permission)
+    {
         $this->permissions()->save($permission);
     }
 }

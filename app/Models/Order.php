@@ -19,7 +19,8 @@ class Order extends Model
         return $this->belongsTo(Menu::class, 'menu_id');
     }
 
-    public function getAllOrders(){
+    public function getAllOrders()
+    {
         $orders = Order::with(['menu', 'user'])->get()->map->only('menu', 'user')->toArray();
         return $orders;
     }

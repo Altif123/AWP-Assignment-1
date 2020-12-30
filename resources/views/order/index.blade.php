@@ -14,7 +14,7 @@
         </div>
         <div class=" bg-background-third rounded-md p-8">
             <table class="table-auto min-w-full bg-white border-collapse">
-                <thead class="bg-yellow-300 text-black">
+                <thead class="bg-background-header text-t-fourth">
                 <tr>
                     <th class=" text-left py-3 px-4 font-semibold text-sm border border-black">Customer name</th>
                     <th class=" text-left py-3 px-4 font-semibold text-sm border border-black">Customer Email</th>

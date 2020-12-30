@@ -1,5 +1,5 @@
-<div class="flex items-center justify-center">
-    <div class=" max-w-lg rounded overflow-hidden shadow-lg mb-20 ">
+<div class="flex justify-center sm:w-full">
+    <div class="max-w-lg rounded overflow-hidden shadow-lg mb-20 sm:ml-10 ">
         @isset($item->image)
             <img class="w-full" src="/storage/menu_images/{{$item->image}}"
                  alt="{{$menuItem->dish_name}} image">
@@ -103,6 +103,7 @@
                         </div>
                     </div>
                 </form>
+                <div>
                 @if($menuItem->reviews->isNotEmpty())
                     <h2 class="pt-5 block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Reviews:</h2>
                     <table class="table-auto">
@@ -117,7 +118,7 @@
                         <tbody>
                         @foreach($menuItem -> reviews as $review)
                             <tr>
-                                <td class="p-2 text-left">{{$review->review}}</td>
+                                <td class="p-2 text-left sm:block">{{$review->review}}</td>
                                 <td class="p-2 text-left">{{$review->rating}}</td>
                                 <td class="p-2 text-left">{{$review->user->name}}</td>
                                 @can('delete_review')

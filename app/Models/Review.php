@@ -19,6 +19,6 @@ class Review extends Model
         return $this->belongsTo(Menu::class);
     }
 
-    protected $fillable = ['user_id', 'menu_id', 'review','rating'];
+    protected $fillable = ['user_id', 'menu_id', 'review', 'rating'];
 
 }

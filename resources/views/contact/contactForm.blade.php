@@ -87,7 +87,7 @@
                         <input id="subject" aria-label="subject" type="text"
                                class="form-input w-full @error('subject')  border-red-500 @enderror"
                                name="subject" required autocomplete="subject" autofocus
-                               placeholder=" Name goes here..." value="">
+                               placeholder=" subject goes here..." value="">
 
                         @error('email')
                         <p class="text-red-500 text-xs italic mt-4">

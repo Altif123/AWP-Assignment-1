@@ -113,12 +113,19 @@
                     style="color:white" x-data
                     @click="$dispatch('toggle-modal')">Help
             </button>
+
+            <div class="pl-5 text-white">
+                <a href="{{route('order.show')}}"> <i class="fas fa-shopping-basket fa-2x"></i>
+                Basket</a>
+            </div>
             @if(Auth::check())
                 <div class="flex float right">
                     <img src="{{Auth::user()->avatar_url}}"
                          class="rounded-full border-solid border-white border-2 -mt-3 object-scale-down ">
+
                 </div>
             @endif
+
 
         </div>
 

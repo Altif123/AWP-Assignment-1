@@ -51,6 +51,7 @@
                             located within the nav bar.
                         </li>
                     </ul>
+
                     <button class="text-blue-400 " type="button" @click="close">
                         close
                     </button>

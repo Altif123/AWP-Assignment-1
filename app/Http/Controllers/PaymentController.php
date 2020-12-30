@@ -26,7 +26,7 @@ class PaymentController extends Controller
                 'amount' => $basketTotal,
                 'currency' => 'GBP',
                 'source' => $request->stripeToken,
-                'description' => 'Order from Huddersfield cafe. Items ordered: ' . $this->basketItems(),
+                'description' => 'Order from Huddersfield cafe. Items ordered: ' . $this->getBasketItems(),
 
             ]);
             $this->storePayment();
@@ -56,7 +56,7 @@ class PaymentController extends Controller
     public function emailPayment($basketTotal)
     {
         $emailContents = $basketTotal;
-        $basketItems = $this->basketItems();
+        $basketItems = $this->getBasketItems();
         Mail::to(auth()->user()->email)
             ->send(new PaymentEmail($emailContents, $basketItems));
 
@@ -65,11 +65,11 @@ class PaymentController extends Controller
 
     }
 
-    public function basketItems()
+    public function getBasketItems()
     {
         $items = \Cart::getContent()->toArray();
         $itemsNames = array_pluck($items, 'name');
-        return trim(json_encode($itemsNames), '[]');;
+        return trim(json_encode($itemsNames), '[]');
 
     }
 }

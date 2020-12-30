@@ -10,5 +10,4 @@ class Payment extends Model
     use HasFactory;
 
     protected $fillable = ['order_id', 'user_id', 'amount'];
-
 }
