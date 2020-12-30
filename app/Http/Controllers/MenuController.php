@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Menu;
-use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Gate;
+
 
 
 class MenuController extends Controller
@@ -18,25 +17,22 @@ class MenuController extends Controller
             'menu' => Menu::latest()->get()]);
     }
 
-    public function filterByCategory(Request $request)
+    public function filterByCategory(Request $request, Menu $menu)
     {
-        $option = $request->category;
         return view('menu/index', [
-            'menu' => Menu::where('category', 'LIKE', $option)->get()]);
+            'menu' => $menu->filterQuery('category', 'LIKE', $request->category)]);
     }
 
-    public function filterByPrice(Request $request)
+    public function filterByPrice(Request $request, Menu $menu)
     {
-        $option = $request->price;
-
         return view('menu/index', [
-            'menu' => Menu::where('price', '<=', $option)->get()]);
+            'menu' => $menu->filterQuery('price', '<=', $request->price)]);
     }
 
-    public function searchByDishName(Request $request)
+    public function searchByDishName(Request $request, Menu $menu)
     {
         return view('menu/index', [
-            'menu' => Menu::where('dish_name', 'LIKE', '%'.$request->searchTerm .'%')->get()]);
+            'menu' => $menu->filterQuery('dish_name', 'LIKE', '%' . $request->searchTerm . '%')]);
     }
 
     public function create()
@@ -47,9 +43,8 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $this->validateMenuItem();
-        $item = new Menu(request(['dish_name', 'description', 'allergy','price','category']));
-        if($request->hasFile('image'))
-        {
+        $item = new Menu(request(['dish_name', 'description', 'allergy', 'price', 'category']));
+        if ($request->hasFile('image')) {
             $imageName = $this->imageUpload($request);
             $item->image = $imageName;
         }
@@ -68,11 +63,10 @@ class MenuController extends Controller
         return view('menu.update', compact('menuItem'));
     }
 
-    public function update(Menu $menuItem,Request $request)
+    public function update(Menu $menuItem, Request $request)
     {
-        $menuItem->update(request(['dish_name', 'description', 'allergy','price','category']));
-        if(isset($request->image))
-        {
+        $menuItem->update(request(['dish_name', 'description', 'allergy', 'price', 'category']));
+        if (isset($request->image)) {
             $imageName = $this->imageUpload($request);
             $menuItem->image = $imageName;
             $menuItem->save();
@@ -95,19 +89,20 @@ class MenuController extends Controller
             'description' => ['required'],
             'allergy' => ['required'],
             'price' => ['required', 'max:5', 'min:4'],
-            'category' =>['required'],
-            'image'  => ['image','nullable','max:1999']
+            'category' => ['required'],
+            'image' => ['image', 'nullable', 'max:1999']
         ]);
     }
-    public function imageUpload($request){
+
+    public function imageUpload($request)
+    {
         $filenameWithExt = $request->file('image')->getClientOriginalName();
-        $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
         $extension = $request->file('image')->getClientOriginalExtension();
-        $fileName = $filename.'_'.time().'.'.$extension;
-        $request->file('image')->storeAs('public/menu_images',$fileName);
+        $fileName = $filename . '_' . time() . '.' . $extension;
+        $request->file('image')->storeAs('public/menu_images', $fileName);
 
         return $fileName;
-
     }
 
 }

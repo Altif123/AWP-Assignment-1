@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Order;
-use function PHPUnit\Framework\isEmpty;
-use function PHPUnit\Framework\isNull;
 
 
 class OrderController extends Controller
@@ -37,7 +35,7 @@ class OrderController extends Controller
 
     public function index(Order $order)
     {
-        $items = Order::all();
+        $items = $order->all();
         return view('order.index', compact('items'));
     }
 
@@ -47,11 +45,10 @@ class OrderController extends Controller
         return redirect(route('order.show'));
     }
 
-
     public function store($items)
     {
         $itemsArray = json_decode($items, true);
-        if (count($itemsArray)>0){
+        if (count($itemsArray) > 0) {
             foreach ($itemsArray as $item) {
                 $order = new Order();
                 $order->menu_id = $item['id'];
@@ -60,14 +57,14 @@ class OrderController extends Controller
             }
             \Cart::clear();
             return redirect()->route('order.show')->with('message', 'Order confirmed');
-        }else{
-            return redirect()->route('order.show')->withErrors( 'Please add items to the cart');
+        } else {
+            return redirect()->route('order.show')->withErrors('Please add items to the basket');
         }
     }
 
-    public function destroy($itemId)
+    public function destroy($itemId, Order $order)
     {
-        $items = Order::where('menu_id', $itemId)->get();
+        $items = $order->where('menu_id', $itemId)->get();
         foreach ($items as $item) {
             $item->delete();
         }

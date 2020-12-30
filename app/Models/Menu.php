@@ -29,5 +29,8 @@ class Menu extends Model
         return $this->hasMany(Review::class);
     }
 
-
+    public function filterQuery($column, $operator, $option)
+    {
+        return Menu::where($column, $operator, $option)->get();
+    }
 }

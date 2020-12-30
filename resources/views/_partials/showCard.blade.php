@@ -60,13 +60,12 @@
                 <form method="POST" action="{{route('review.store',[$menuItem])}}">
                     @csrf
                     <div class="flex flex-wrap">
-                        <label for="review" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Review ') }}:
+                        <label for="review" class="block pt-2 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Add Review ') }}:
                         </label>
 
                         <input id="review" type="text" aria-label="Review"
-                               class="form-input w-full @error('review') border-red-500 @enderror" name="review"
-                        >
+                               class="form-input w-full @error('review') border-red-500 @enderror" name="review">
 
                         @error('review')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -75,13 +74,15 @@
                         @enderror
 
                         <div class="flex flex-wrap">
-                            <label for="rating" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('Rating') }}:
+                            <label for="rating" class="block pt-2 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                                {{ __('Add Rating') }}:
                             </label>
 
                             <select id="rating" aria-label="rating"
-                                    class="form-input w-full @error('rating') border-red-500 @enderror" name="rating"
+                                    class="w-full rounded p-2 @error('rating') border-red-500 @enderror" name="rating"
                                     required>
+
+                                <option value="" selected disabled hidden>Select rating</option>
                                 <option value="1/5">1/5</option>
                                 <option value="2/5">2/5</option>
                                 <option value="3/5">3/5</option>
@@ -95,13 +96,15 @@
                             </p>
                             @enderror
                         </div>
-                        <button type="submit" role="button">
-                            <i class="fas fa-plus inline crud-button cursor-pointer px-3 py-2"> Submit review</i>
-                        </button>
+                        <div class="flex flex-wrap pl-8">
+                            <button type="submit" role="button">
+                                <i class="fas fa-plus inline crud-button cursor-pointer px-2 py-2"> Submit review</i>
+                            </button>
+                        </div>
                     </div>
                 </form>
                 @if($menuItem->reviews->isNotEmpty())
-                    <h2>Reviews:</h2>
+                    <h2 class="pt-5 block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Reviews:</h2>
                     <table class="table-auto">
                         <thead>
                         <tr>

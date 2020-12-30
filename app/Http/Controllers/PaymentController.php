@@ -21,13 +21,12 @@ class PaymentController extends Controller
     {
 
         $basketTotal = \Cart::getTotal();
-
         try {
-            $charge = Stripe::charges()->create([
+            Stripe::charges()->create([
                 'amount' => $basketTotal,
                 'currency' => 'GBP',
                 'source' => $request->stripeToken,
-                'description' => 'Order',
+                'description' => 'Order from Huddersfield cafe. Items ordered: ' . $this->basketItems(),
 
             ]);
             $this->storePayment();
@@ -36,7 +35,7 @@ class PaymentController extends Controller
             return redirect(route('order.show'))->with('message', 'Order processed successfully, amount paid is: £' . $basketTotal . '. Please confirm your order for instore collection');
         } catch (CardErrorException $exception) {
             return back()->withErrors('Error ' . $exception->getMessage());
-        }catch (MissingParameterException $exception) {
+        } catch (MissingParameterException $exception) {
             return back()->withErrors('Error. At least 1 item required in basket to complete order');
         }
 
@@ -53,15 +52,25 @@ class PaymentController extends Controller
             ]);
         }
     }
-    public function emailPayment($basketTotal){
+
+    public function emailPayment($basketTotal)
+    {
         $emailContents = $basketTotal;
+        $basketItems = $this->basketItems();
         Mail::to(auth()->user()->email)
-            ->send(new PaymentEmail($emailContents));
+            ->send(new PaymentEmail($emailContents, $basketItems));
 
         return redirect(route('order.show'))
-            ->with('message','Confirmation Email sent successfully');
+            ->with('message', 'Confirmation Email sent successfully');
 
     }
 
+    public function basketItems()
+    {
+        $items = \Cart::getContent()->toArray();
+        $itemsNames = array_pluck($items, 'name');
+        return trim(json_encode($itemsNames), '[]');;
+
+    }
 }
 

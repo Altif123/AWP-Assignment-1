@@ -12,11 +12,13 @@ class PaymentEmail extends Mailable
     use Queueable, SerializesModels;
 
     public $emailContents;
+    public $basketItems;
 
 
-    public function __construct($emailContents)
+    public function __construct($emailContents,$basketItems)
     {
         $this->emailContents = $emailContents;
+        $this->basketItems = $basketItems;
     }
 
     public function build()

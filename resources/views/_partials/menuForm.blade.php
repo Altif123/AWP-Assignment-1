@@ -18,7 +18,7 @@
     </div>
 
     <div class="flex flex-wrap ">
-        <label for="description" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="description" class="block pt-3 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
             {{ __('Description') }}:
         </label>
 
@@ -36,7 +36,7 @@
 
     </div>
     <div class="flex flex-wrap">
-        <label for="allergy" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="allergy" class="block pt-3 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
             {{ __('Allergy') }}:
         </label>
 
@@ -53,7 +53,7 @@
     </div>
 
     <div class="flex flex-wrap">
-        <label for="amount" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="amount" class="block pt-3 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
             {{ __('Price') }}:
         </label>
 
@@ -68,18 +68,21 @@
         @enderror
     </div>
     <div class="flex flex-wrap">
-        <label for="category" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="category" class="block pt-3 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
             {{ __('Category') }}:
         </label>
 
         <select id="category" type="category" aria-label="category"
-                class="form-input w-full @error('password') border-red-500 @enderror" name="category"
-                required autocomplete="price">
+                class="w-full border rounded py-2 @error('password') border-red-500 @enderror" name="category"
+                required>
+            <option value="" selected disabled hidden>{{$item -> category??'Select category'}}</option>
             <option value="Sea food">Sea food</option>
             <option value="Thai">Thai</option>
             <option value="Chinese">Chinese</option>
             <option value="Indian">Indian</option>
             <option value="Turkish">Turkish</option>
+            <option value="Italian">Italian</option>
+            <option value="Caribbean">Caribbean</option>
         </select>
 
         @error('category')
@@ -90,11 +93,11 @@
     </div>
 
     <div class="flex flex-wrap">
-        <label for="category" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="category" class="block pt-3 pr-2 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
             {{ __('Image') }}:
         </label>
 
-        <input type="file" id="image" name="image">
+        <input type="file" class="pt-3" id="image" name="image" >
 
         @error('image')
         <p class="text-red-500 text-xs italic mt-4">

@@ -54,7 +54,7 @@
                         <form method="POST" action="{{route('filterByPrice')}}">
                             @csrf
                             <input type="range" name="price" value="4" min="1" max="30" oninput="this.nextElementSibling.value = this.value">
-                            <output>4</output>
+                            <output>0</output>
                             <button type="submit" role="button"
                                     class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">
                                 Apply filter
