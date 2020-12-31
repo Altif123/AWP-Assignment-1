@@ -4,23 +4,24 @@
     <main class="sm:container sm:mx-auto sm:mt-10">
         <x-flashMessage/>
         <x-errorMessage/>
-        <div class="w-full sm:px-6">
+        <div class="w-full sm:px-6 pt-20">
+            <div class="float-left pb-3 pl-3">
+                <span class="bg-yellow-500 text-grey-600 lg:text-xl sm:text-xs font-bold rounded p-3">Basket Total: £{{$cartTotal}}</span>
+            </div>
             <div class="float-right pr-5">
                 <x-basketHelpModal/>
             </div>
-            <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
+            <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider pt-5 lg:text-6xl  sm:mb-8 text-3xl">
                 Basket
             </h1>
 
-        </div>
-        <div class="float-right pb-3 sm:w-1/6">
-            <span class="bg-green-500 text-grey-600 text-xl sm:text-sm font-bold rounded p-3">Basket Total: £{{$cartTotal}}</span>
+
         </div>
 
         <form method="POST" action="order/store/{{$items}}">
             @csrf
-            <button type="submit" role="button" class="w-50">
-                <i class="fas fa-plus inline bg-green-500 text-grey-600 text-xl sm:text-sm font-bold rounded p-3 crud-button cursor-pointer px-3 py-2">
+            <button type="submit" role="button" class="w-25">
+                <i class="fas fa-plus inline bg-green-500 text-grey-600 lg:text-xl sm:text-xs font-bold rounded p-3 crud-button cursor-pointer px-3 py-2">
                     Confirm order for in-store collection</i>
             </button>
         </form>

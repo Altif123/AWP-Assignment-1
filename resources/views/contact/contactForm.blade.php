@@ -2,35 +2,36 @@
 
 @section('content')
     <main class="sm:container sm:mx-auto sm:mt-10">
-        <div class="justify-content-center">
-            <div class="py-4 px-8 float-right">
+        <div class="justify-content-center grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4">
+            <div class="py-4 px-8">
                 <section
-                        class="flex flex-col py-8 px-8 w-450 h-450 break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+                        class="flex-col py-8 px-8 h-full bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
                     <header class="font-semibold text-2xl bg-background-header text-t-fourth py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                         {{ __('Where to find us') }}
                     </header>
 
                     <iframe
                             class="py-8 px-8 border-solid border-4 border-light-blue-500"
-                            width="600"
-                            height="450"
+                            width="100%"
+                            height="70%"
                             frameborder="0" style="border:0"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBy6q3uT7Aowry6z0t58QuVkllZmCaq7-A
     &q=Coffeevolution,Huddersfeiled+UK" allowfullscreen>
                     </iframe>
-                    <a href="https://www.google.com/maps/place/Coffeevolution/@53.647599,-1.781867,1066m/data=!3m1!1e3!4m5!3m4!1s0x0:0x3ccf176ea896f5b!8m2!3d53.6475988!4d-1.781867?hl=en-US"
-                    <div class="flex flex-wrap ">
-                        <button type="submit" role="button"
-                                class="select-none w-full align-center  font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
-                            Print map
-                        </button>
-                    </div>
+                    <a href="https://www.google.com/maps/place/Coffeevolution/@53.647599,-1.781867,1066m/data=!3m1!1e3!4m5!3m4!1s0x0:0x3ccf176ea896f5b!8m2!3d53.6475988!4d-1.781867?hl=en-US">
+                        <div class="flex flex-wrap ">
+                            <button type="submit" role="button"
+                                    class="select-none w-full align-center  font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
+                                Print map
+                            </button>
+                        </div>
                     </a>
                 </section>
-
             </div>
+
             <section
-                    class="flex flex-col flex-1  py-8 px-8 break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+                    class="flex flex-col flex-1 py-8 px-8 lg:w-3/4 sm:w-full  break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
+
                 <header class="font-semibold text-2xl bg-background-header text-t-fourth py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                     {{ __('Contact us') }}
                 </header>

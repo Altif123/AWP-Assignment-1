@@ -3,7 +3,6 @@
 @section('content')
     <main class="sm:container sm:mx-auto sm:mt-10">
         <div class="w-full sm:px-6">
-
             <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:text-6xl">
                 Menu
             </h1>
@@ -14,16 +13,14 @@
                 </div>
             </a>
             @endcan
-            <div class="my-2 flex sm:flex-row flex-col">
-                <div class="flex flex-row mb-1 sm:mb-0">
-
-                    <form method="POST" action="{{route('filterByCategory')}}">
+            <div class="my-2 flex sm:flex-row flex-col pl-5">
+                <div class="lg:p-2 sm:p-2">
+                    <div method="POST" action="{{route('filterByCategory')}}">
                         @csrf
-                        <div class="relative text-gray-600 focus-within:text-gray-400">
-
+                        <div class="text-gray-600 focus-within:text-gray-400">
                             <select id="category" type="category" aria-label="category"
                                     name="category"
-                                    required autocomplete="category">
+                                    required class="border">
                                 <option selected="selected"> Filter by Category <i class="fas fa-chevron-down"></i></option>
                                 <option value="Sea food">Sea food</option>
                                 <option value="Thai">Thai</option>
@@ -36,12 +33,13 @@
                                 Apply filter
                             </button>
                         </div>
-
+                    </div>
+                </div>
                     </form>
-                    <div class="flex flex-row mb-1 pl-2 sm:mb-0">
+                    <div class="lg:p-2 sm:p-2">
                         <form method="POST" action="{{route('searchByDishName')}}">
                             @csrf
-                        <input type="search" name="searchTerm"id="searchTerm"  class="bg-purple-white shadow rounded border-0 " placeholder="Search by dish name...">
+                        <input type="search" name="searchTerm"id="searchTerm"  class="bg-purple-white shadow rounded border" placeholder="Search by dish name...">
                             <button type="submit" role="button"
                                     class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">
                                 search <i class="fas fa-search"></i>
@@ -50,10 +48,10 @@
                         </form>
                     </div>
 
-                    <div class="flex flex-row mb-1 pl-2 sm:mb-0">
+                    <div class="lg:p-2 sm:p-1">
                         <form method="POST" action="{{route('filterByPrice')}}">
                             @csrf
-                            <input type="range" name="price" value="4" min="1" max="30" oninput="this.nextElementSibling.value = this.value">
+                            <input type="range" name="price" value="0" min="1" max="30" oninput="this.nextElementSibling.value = this.value">
                             <output>0</output>
                             <button type="submit" role="button"
                                     class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">
@@ -62,7 +60,7 @@
 
                         </form>
                     </div>
-                    <div class="flex flex-row mb-1 pl-2 sm:mb-0">
+                    <div class="lg:p-2 sm:p-1">
                         <a href="{{route('menu.index')}}">
                         <button type="submit" role="button"
                                 class="px-4 py-1 text-white font-light tracking-wider bg-blue-500 hover:bg-blue-800 rounded">

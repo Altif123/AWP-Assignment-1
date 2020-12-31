@@ -8,10 +8,7 @@
             </div>
 
             <x-backBtn/>
-            <div class="my-2 flex sm:flex-row flex-col">
-                <div class="flex flex-row mb-1 sm:mb-0">
-
-                    <div class="grid grid-cols-3 gap-4 p-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 bg-background-third rounded-md">
+                    <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
                         @foreach ($items as $item)
                             <div class="py-6">
                                 <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
@@ -33,7 +30,5 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
     </main>
 @endsection

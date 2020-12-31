@@ -1,6 +1,6 @@
 <body class="bg-gray-200 flex items-center justify-center h-screen">
 
-<button class="modal-open bg-green-500 hover:border-indigo-500 text-black hover:text-indigo-500 font-bold py-2 px-4 rounded">How to order</button>
+<button class="modal-open bg-blue-500 hover:border-indigo-500 text-black hover:text-indigo-500 font-bold py-2 px-4 rounded">How to order</button>
 
 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>

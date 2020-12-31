@@ -23,7 +23,6 @@ class OrderController extends Controller
 
         return redirect(route('order.show'))
             ->with('message', 'Added to order successfully');
-
     }
 
     public function show()
