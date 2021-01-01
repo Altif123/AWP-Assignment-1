@@ -11,7 +11,7 @@
                 </div>
                 @foreach($user->roles as $role)
                     @isset($role)
-                        <div>
+                        <div aria-label="role">
                             <span class="inline-flex bg-purple-600 text-white rounded-full px-3 py-1 justify-center items-center text-">{{$role->name}}</span>
                         </div>
                     @endisset
@@ -36,7 +36,7 @@
                             <input id="name" type="text"
                                    class="form-input bg-background-fourth w-full @error('name')  border-red-500 @enderror"
                                    name="name" value="{{old('name')??$user -> name}}"
-                                   autofocus placeholder="{{$user->name}}">
+                                   autofocus placeholder="{{$user->name}}" aria-label="Name">
 
                             @error('name')
                             <p class="text-red-500 text-xs italic mt-4">
@@ -47,14 +47,14 @@
 
                         <div class="flex flex-wrap">
                             <label for="email" class="block text-t-first text-sm font-bold mb-2 sm:mb-4">
-                                {{ __('E-Mail Address please') }}:
+                                {{ __('E-Mail Address') }}:
                             </label>
 
                             <input id="email" type="email"
                                    class="form-input w-full bg-background-fourth @error('email') border-red-500 @enderror"
                                    name="email"
                                    value="{{old('email')??$user -> email}}"
-                                   placeholder="{{$user->email}}">
+                                   placeholder="{{$user->email}}" aria-label="email">
 
                             @error('email')
                             <p class="text-green-500 text-xs italic mt-4">
