@@ -6,25 +6,25 @@
             <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:mt-10 sm:text-6xl">
                 All orders
             </h1>
-            <button id="download" role="button" data-export="export"
-                    class="bg-blue-500 float-right hover:bg-blue-700 text-white p-2 font-bold rounded">Download all
-                orders<i class="fas fa-cart-arrow-down"></i></button>
             <x-backBtn/>
 
         </div>
 
-        <div class=" bg-background-third rounded-md p-8" id="table">
-                <table class="border-collapse w-full rounded-md">
-                    <thead class="bg-yellow-500">
-                    <tr>
-                        <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Customer name</th>
-                        <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Customer Email</th>
-                        <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Dish ordered</th>
-                        <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Amount due</th>
-                        <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+        <div class=" bg-background-third rounded-md p-8">
+            <table class="border-collapse w-full rounded-md order_table" id="order_table">
+                <thead class="bg-yellow-500">
+                <tr>
+                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Customer name
+                    </th>
+                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Customer Email
+                    </th>
+                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Dish ordered
+                    </th>
+                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Amount due</th>
+                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
                 @foreach($items as $item)
                     <tr class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
                         <td class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
@@ -56,9 +56,29 @@
                 </tbody>
             </table>
         </div>
+        <!-- Datatable -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="http://www.jqueryscript.net/demo/jQuery-Plugin-To-Convert-HTML-Table-To-CSV-tabletoCSV/jquery.tabletoCSV.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
         <script>
+
             $("#download").click(function () {
-                $("table").tableToCSV();
-            });</script>
+                $(".order_table").DataTable();
+            });
+            $(document).ready(function () {
+                $('#order_table').DataTable({
+                    "paging": false,
+                    "ordering": true,
+                    "info": true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'csv']
+                });
+            })
+        </script>
     </main>
 @endsection
