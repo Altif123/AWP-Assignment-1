@@ -29,7 +29,7 @@
         <div class="container mx-auto flex justify-between items-center px-6">
             <div>
                 <a href="{{ url('/') }} " aria-label="Go to home page"
-                   class="text-lg font-semibold text-gray-100 no-underline">
+                   class="lg:text-lg sm:text-xm font-semibold text-gray-100 no-underline">
                     {{ config('app.name') }}
                 </a>
             </div>
@@ -112,9 +112,9 @@
                     @click="$dispatch('toggle-modal')">Help
             </button>
 
-            <div class="pl-5 text-white">
+            <div class="pl-5 text-white sm:text-xs lg:text-xl">
                 <a href="{{route('order.show')}}"> <i class="fas fa-shopping-basket fa-2x"></i>
-                Basket</a>
+                    Basket</a>
             </div>
             @if(Auth::check())
                 <div class="flex float right">
@@ -145,7 +145,8 @@
                     <span class="my-2"><a href="{{route("favorites.index")}}"
                                           class="text-gray-400  text-md hover:text-blue-500">Favorites</a></span>
                     <span class="my-2"><a href="/" class="text-gray-400  text-md hover:text-blue-500">Home</a></span>
-                    <span class="my-2"><a href="{{route("contact.show")}}" class="text-gray-400  text-md hover:text-blue-500">Contact-us</a></span>
+                    <span class="my-2"><a href="{{route("contact.show")}}"
+                                          class="text-gray-400  text-md hover:text-blue-500">Contact-us</a></span>
                 </div>
                 <div class="flex flex-col mt-8">
                     <span class="my-2"><a href="{{route("login")}}" class="text-gray-400 text-md hover:text-blue-500">Login</a></span>
@@ -196,7 +197,5 @@
         }
     }
 </script>
-
-
 </body>
 </html>

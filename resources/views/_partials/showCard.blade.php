@@ -104,47 +104,44 @@
                     </div>
                 </form>
                 <div>
-                @if($menuItem->reviews->isNotEmpty())
-                    <h2 class="pt-5 block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Reviews:</h2>
-                    <table class="table-auto">
-                        <thead>
-                        <tr>
-                            <th class="text-left p-2">Review</th>
-                            <th class="text-left p-2">Rating</th>
-                            <th class="text-left p-2">Author</th>
-                            <th class="text-left p-2"></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($menuItem -> reviews as $review)
+                    @if($menuItem->reviews->isNotEmpty())
+                        <h2 class="pt-5 block text-gray-700 text-sm font-bold mb-2 sm:mb-4">Reviews:</h2>
+                        <table class="table-auto">
+                            <thead>
                             <tr>
-                                <td class="p-2 text-left sm:block">{{$review->review}}</td>
-                                <td class="p-2 text-left">{{$review->rating}}</td>
-                                <td class="p-2 text-left">{{$review->user->name}}</td>
-                                @can('delete_review')
-                                    <td class="p-2 text-left">
-                                        <form method="POST" action="{{route('review.delete',$review)}}">
-                                            <div class="bg-yellow-400 text-black text-xs  font-bold uppercase rounded">
-                                                <x-deleteBtn/>
-                                            </div>
-                                        </form>
-                                    </td>
-                                @endcan
+                                <th class="text-left p-2">Review</th>
+                                <th class="text-left p-2">Rating</th>
+                                <th class="text-left p-2">Author</th>
+                                <th class="text-left p-2"></th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                @else
-                    <h2>No reviews yet</h2>
-                @endif
+                            </thead>
+                            <tbody>
+                            @foreach($menuItem -> reviews as $review)
+                                <tr>
+                                    <td class="p-2 text-left sm:block">{{$review->review}}</td>
+                                    <td class="p-2 text-left">{{$review->rating}}</td>
+                                    <td class="p-2 text-left">{{$review->user->name}}</td>
+                                    @can('delete_review')
+                                        <td class="p-2 text-left">
+                                            <form method="POST" action="{{route('review.delete',$review)}}">
+                                                <div class="bg-yellow-400 text-black text-xs  font-bold uppercase rounded">
+                                                    <x-deleteBtn/>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    @endcan
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <h2>No reviews yet</h2>
+                    @endif
 
+                </div>
             </div>
         </div>
+        <x-backBtn/>
     </div>
-
-
-    <x-backBtn/>
-
-</div>
 </div>
 </div>

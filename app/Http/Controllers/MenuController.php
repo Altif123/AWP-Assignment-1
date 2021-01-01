@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 
-
 class MenuController extends Controller
 {
     public function index()
@@ -71,8 +70,6 @@ class MenuController extends Controller
             $menuItem->image = $imageName;
             $menuItem->save();
         }
-
-
         return redirect()->route('menu.index');
     }
 

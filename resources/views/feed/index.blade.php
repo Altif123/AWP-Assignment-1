@@ -8,27 +8,27 @@
             </div>
 
             <x-backBtn/>
-                    <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
-                        @foreach ($items as $item)
-                            <div class="py-6">
-                                <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
-                                    <div class="p-4 bg-background-fourth">
-                                        <div class="flex flex-col mb-1 pl-2 sm:mb-0">
-                                            <h1 class="text-gray-900 font-bold text-base sm:text-1xl md:text-2xl">
-                                                <a href="{{ $item->get_permalink() }}">{{ $item->get_title() }}</a>
-                                            </h1>
-                                            <p class="mt-2 text-gray-600 md:text-sm text-xs">{{ $item->get_description() }}</p>
-                                            <div class="flex item-center justify-between mt-3">
-                                                <h1 class="text-gray-700 font-bold text-sm  ">Posted
-                                                    on {{ $item->get_date('j F Y | g:i a') }}</h1>
-                                            </div>
-                                        </div>
+            <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
+                @foreach ($items as $item)
+                    <div class="py-6">
+                        <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+                            <div class="p-4 bg-background-fourth">
+                                <div class="flex flex-col mb-1 pl-2 sm:mb-0">
+                                    <h1 class="text-gray-900 font-bold text-base sm:text-1xl md:text-2xl">
+                                        <a href="{{ $item->get_permalink() }}">{{ $item->get_title() }}</a>
+                                    </h1>
+                                    <p class="mt-2 text-gray-600 md:text-sm text-xs">{{ $item->get_description() }}</p>
+                                    <div class="flex item-center justify-between mt-3">
+                                        <h1 class="text-gray-700 font-bold text-sm  ">Posted
+                                            on {{ $item->get_date('j F Y | g:i a') }}</h1>
                                     </div>
                                 </div>
                             </div>
-                                @endforeach
-
+                        </div>
                     </div>
-                </div>
+                @endforeach
+
+            </div>
+        </div>
     </main>
 @endsection

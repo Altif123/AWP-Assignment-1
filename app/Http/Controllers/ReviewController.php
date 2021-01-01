@@ -18,19 +18,6 @@ class ReviewController extends Controller
         return redirect()->route('menu.index');
     }
 
-    public function update(Request $request,$menuItem)
-    {
-        dd('update in review');
-//        $this->authorize('update',$menuItem->reviews);
-
-//        Review::create([
-//            'menu_id' => $menuItem,
-//            'user_id' => auth()->user()->id,
-//            'review' => $request->review,
-//            'rating'=> $request->rating,
-//        ]);
-        return redirect()->route('menu.index');
-    }
     public function destroy(Review $reviews,$review)
     {
         $reviews->where(['id'=>$review])->delete();

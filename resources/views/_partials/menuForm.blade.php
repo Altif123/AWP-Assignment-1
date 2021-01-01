@@ -97,7 +97,7 @@
             {{ __('Image') }}:
         </label>
 
-        <input type="file" class="pt-3" id="image" name="image" >
+        <input type="file" class="pt-3" id="image" name="image">
 
         @error('image')
         <p class="text-red-500 text-xs italic mt-4">

@@ -7,7 +7,6 @@
                 Favorites
             </h1>
             <x-backBtn/>
-
             <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-2  bg-background-third rounded-md">
                 @if(!$favorites->isEmpty())
                     @foreach($favorites as $item)
@@ -18,6 +17,5 @@
                 @endif
             </div>
         </div>
-
     </main>
 @endsection

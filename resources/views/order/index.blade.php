@@ -7,9 +7,7 @@
                 All orders
             </h1>
             <x-backBtn/>
-
         </div>
-
         <div class=" bg-background-third rounded-md p-8">
             <table class="border-collapse w-full rounded-md order_table" id="order_table">
                 <thead class="bg-yellow-500">

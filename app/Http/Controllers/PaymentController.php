@@ -19,7 +19,6 @@ class PaymentController extends Controller
 
     public function processPayment(Request $request)
     {
-
         $basketTotal = \Cart::getTotal();
         try {
             Stripe::charges()->create([
@@ -38,8 +37,6 @@ class PaymentController extends Controller
         } catch (MissingParameterException $exception) {
             return back()->withErrors('Error. At least 1 item required in basket to complete order');
         }
-
-
     }
 
     public function storePayment()
@@ -70,7 +67,6 @@ class PaymentController extends Controller
         $items = \Cart::getContent()->toArray();
         $itemsNames = array_pluck($items, 'name');
         return trim(json_encode($itemsNames), '[]');
-
     }
 }
 

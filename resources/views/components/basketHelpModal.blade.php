@@ -1,6 +1,8 @@
 <body class="bg-gray-200 flex items-center justify-center h-screen">
 
-<button class="modal-open bg-blue-500 hover:border-indigo-500 text-black hover:text-indigo-500 font-bold py-2 px-4 rounded">How to order</button>
+<button class="modal-open bg-blue-500 hover:border-indigo-500 text-black hover:text-indigo-500 font-bold py-2 px-4 rounded">
+    How to order
+</button>
 
 <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
@@ -12,9 +14,10 @@
         </div>
         <div class="modal-content py-4 text-left px-6">
             <div class="flex justify-between items-center pb-3">
-                <p class="text-2xl font-bold"> <i class="fas fa-shopping-cart"></i> How to order</p>
+                <p class="text-2xl font-bold"><i class="fas fa-shopping-cart"></i> How to order</p>
                 <div class="modal-close cursor-pointer z-50">
-                    <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                    <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                         viewBox="0 0 18 18">
                         <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
                     </svg>
                 </div>
@@ -26,7 +29,8 @@
 
 
             <div class="flex justify-end pt-2">
-                <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
+                <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close
+                </button>
             </div>
 
         </div>
@@ -36,7 +40,7 @@
 <script>
     var openmodal = document.querySelectorAll('.modal-open')
     for (var i = 0; i < openmodal.length; i++) {
-        openmodal[i].addEventListener('click', function(event){
+        openmodal[i].addEventListener('click', function (event) {
             event.preventDefault()
             toggleModal()
         })
@@ -50,7 +54,7 @@
         closemodal[i].addEventListener('click', toggleModal)
     }
 
-    document.onkeydown = function(evt) {
+    document.onkeydown = function (evt) {
         evt = evt || window.event
         var isEscape = false
         if ("key" in evt) {
@@ -63,8 +67,7 @@
         }
     };
 
-
-    function toggleModal () {
+    function toggleModal() {
         const body = document.querySelector('body')
         const modal = document.querySelector('.modal')
         modal.classList.toggle('opacity-0')

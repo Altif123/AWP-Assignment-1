@@ -31,7 +31,8 @@
                     @include('_partials.itemCard')
                 @endforeach
             @else
-                <h1> No items in the basket. You can add some from the <a class="text-blue-500" href="{{route('menu.index')}}"> menu </a></h1>
+                <h1> No items in the basket. You can add some from the <a class="text-blue-500"
+                                                                          href="{{route('menu.index')}}"> menu </a></h1>
             @endif
         </div>
 
