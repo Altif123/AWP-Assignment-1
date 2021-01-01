@@ -8,18 +8,18 @@
             </h1>
             <x-backBtn/>
         </div>
-        <div class=" bg-background-third rounded-md p-8">
+        <div class="bg-background-third rounded-md p-8">
             <table class="border-collapse w-full rounded-md order_table" id="order_table">
-                <thead class="bg-yellow-500">
+                <thead class="bg-background-header">
                 <tr>
-                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Customer name
+                    <th class="p-3 font-bold text-t-fourth border border-gray-300 hidden lg:table-cell">Customer name
                     </th>
-                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Customer Email
+                    <th class="p-3 font-bold text-t-fourth border border-gray-300 hidden lg:table-cell">Customer Email
                     </th>
-                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Dish ordered
+                    <th class="p-3 font-bold text-t-fourth border border-gray-300 hidden lg:table-cell">Dish ordered
                     </th>
-                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Amount due</th>
-                    <th class="p-3 font-bold text-gray-800 border border-gray-300 hidden lg:table-cell">Actions</th>
+                    <th class="p-3 font-bold text-t-fourth border border-gray-300 hidden lg:table-cell">Amount due</th>
+                    <th class="p-3 font-bold text-t-fourth border border-gray-300 hidden lg:table-cell">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
