@@ -1,5 +1,5 @@
 # Huddersfield Cafe
-crud-application-Altif-123 created by GitHub Classroom
+Advanced-application-Altif-123 created by GitHub Classroom
 
 ### About
 This web app shows the menu for Huddersfield Cafe a fictional cafe that serves all kinds of foods and bevrages from coffee to burgers and steaks.
