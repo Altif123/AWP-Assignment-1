@@ -8,7 +8,6 @@ class FeedController extends Controller
     {
         $feed = \Feeds::make(['http://sprudge.com/feed']);
         $items = $feed->get_items();
-
         return $items;
     }
 

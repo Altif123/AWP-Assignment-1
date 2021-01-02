@@ -15,7 +15,6 @@
             <h1 class="text-xl py-1">Price:</h1>
             <p class="text-orange-700 text-sm">£ {{$menuItem->price}}</p>
                 </span>
-
         </div>
         <div class="px-6 pt-4 pb-2">
 
@@ -137,7 +136,6 @@
                     @else
                         <h2>No reviews yet</h2>
                     @endif
-
                 </div>
             </div>
         </div>

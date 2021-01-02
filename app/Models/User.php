@@ -26,7 +26,6 @@ class User extends Authenticatable
 
     public function getFavorites()
     {
-
         return $this->belongsToMany(Menu::class, 'favorite_user');
     }
 
@@ -37,34 +36,27 @@ class User extends Authenticatable
 
     public function Roles()
     {
-
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
     public function assignRole($role)
     {
-
         $this->roles()->sync($role, false);
     }
 
     public function permissions()
     {
-
         return $this->roles->map->permissions->flatten()->pluck('name')->unique();
-
     }
 
     public function Orders()
     {
-
         return $this->hasMany(Order::class);
     }
 
     public function getAllOrders()
     {
-
         return Order::with(['menu'])->get()->pluck('menu');
-
     }
 
     public function reviews()

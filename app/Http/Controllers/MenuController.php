@@ -98,7 +98,6 @@ class MenuController extends Controller
         $extension = $request->file('image')->getClientOriginalExtension();
         $fileName = $filename . '_' . time() . '.' . $extension;
         $request->file('image')->storeAs('public/menu_images', $fileName);
-
         return $fileName;
     }
 

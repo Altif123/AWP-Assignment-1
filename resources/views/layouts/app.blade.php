@@ -3,10 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -102,9 +100,7 @@
                             <input type="checkbox" id="darkModeToggle" onclick="darkModeOn()"> Toggle dark mode
                         </div>
                     </div>
-
                 </div>
-
             </div>
             <button class="far fa-question-circle sm:text-xs" tabindex="0"
                     role="button"
@@ -120,11 +116,8 @@
                 <div class="flex float right">
                     <img src="{{Auth::user()->avatar_url}}"
                          class="rounded-full border-solid border-white border-2 -mt-3 object-scale-down ">
-
                 </div>
             @endif
-
-
         </div>
 
     </nav>
@@ -171,7 +164,6 @@
 
 <script>
     darkModeCheck();
-
     function darkModeCheck() {
         if (docCookies.hasItem("cookieTheme")) {
             document.getElementById('darkModeToggle').checked = true;

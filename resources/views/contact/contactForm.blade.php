@@ -9,7 +9,6 @@
                     <header class="font-semibold text-2xl bg-background-header text-t-fourth py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
                         {{ __('Where to find us') }}
                     </header>
-
                     <iframe
                             class="py-8 px-8 border-solid border-4 border-light-blue-500"
                             width="100%"
@@ -28,7 +27,6 @@
                     </a>
                 </section>
             </div>
-
             <section
                     class="flex flex-col flex-1 py-8 px-8 lg:w-3/4 sm:w-full  break-words bg-background-first sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 

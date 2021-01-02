@@ -6,7 +6,6 @@
             <div class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider text-4xl sm:mb-8 sm:mt-10 sm:text-6xl">
                 News <span class="text-xs">(from https://sprudge.com/)</span>
             </div>
-
             <x-backBtn/>
             <div class="grid p-6 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1  gap-3  bg-background-third rounded-md">
                 @foreach ($items as $item)
@@ -27,7 +26,6 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </main>

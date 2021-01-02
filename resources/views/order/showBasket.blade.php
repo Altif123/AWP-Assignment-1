@@ -14,10 +14,7 @@
             <h1 class="mb-6 mt-6 text-gray-600 text-center font-light tracking-wider pt-5 lg:text-6xl  sm:mb-8 text-3xl">
                 Basket
             </h1>
-
-
         </div>
-
         <form method="POST" action="order/store/{{$items}}">
             @csrf
             <button type="submit" role="button" class="w-25">
@@ -47,13 +44,15 @@
                 <form action="{{ route('payment.process') }}" method="post" id="payment_form">
                     @csrf
                     <div class="flex flex-wrap pt-2">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4" aria-label="name on card">Name on
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
+                               aria-label="name on card">Name on
                             Card</label>
                         <input class="form-input w-full @error('name')  border-red-500 @enderror" size="4" id="name"
                                type='text'>
                     </div>
                     <div class="flex flex-wrap pt-2">
-                        <label for="address" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4" aria-label="Address">Address</label>
+                        <label for="address" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
+                               aria-label="Address">Address</label>
                         <input class="form-input w-full @error('address')  border-red-500 @enderror" size="4"
                                id="address"
                                type='text'>
@@ -64,7 +63,8 @@
                                type='text'>
                     </div>
                     <div class="flex flex-wrap pt-2">
-                        <label for="post_code" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4" aria-label="post">Post
+                        <label for="post_code" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
+                               aria-label="post">Post
                             Code</label>
                         <input class="form-input w-full @error('post_code')  border-red-500 @enderror" size="4"
                                id="post_code"
@@ -72,7 +72,8 @@
                     </div>
                     <div class="pb-5">
                         <div class="form-row ">
-                            <label for="card" class="block text-gray-700 pt-2 text-sm font-bold mb-2 sm:mb-4" aria-label="card number">
+                            <label for="card" class="block text-gray-700 pt-2 text-sm font-bold mb-2 sm:mb-4"
+                                   aria-label="card number">
                                 Credit or debit card
                             </label>
                             <div id="card" class="form-input" aria-label="card number">

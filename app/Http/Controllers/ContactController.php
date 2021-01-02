@@ -10,7 +10,6 @@ class ContactController extends Controller
 {
     public function show()
     {
-
         return view('contact.contactForm');
     }
 
