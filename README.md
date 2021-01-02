@@ -50,4 +50,8 @@ When using docker the server will automatically start using the url of `http://1
 - Datatables JS library 
     -("https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js")
     -("https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js")
+- Soicalite ("https://github.com/laravel/socialite")
+- Gravatar ("https://github.com/creativeorange/gravatar")
+- Shopping cart ("https://github.com/darryldecode/laravelshoppingcart")
+- RSS feed reader ("https://github.com/willvincent/feeds")
 
