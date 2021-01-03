@@ -59,7 +59,6 @@ class PaymentController extends Controller
 
         return redirect(route('order.show'))
             ->with('message', 'Confirmation Email sent successfully');
-
     }
 
     public function getBasketItems()
@@ -68,5 +67,6 @@ class PaymentController extends Controller
         $itemsNames = array_pluck($items, 'name');
         return trim(json_encode($itemsNames), '[]');
     }
+
 }
 

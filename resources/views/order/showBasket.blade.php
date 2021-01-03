@@ -48,27 +48,27 @@
                                aria-label="name on card">Name on
                             Card</label>
                         <input class="form-input w-full @error('name')  border-red-500 @enderror" size="4" id="name"
-                               type='text'>
+                               type='text' required>
                     </div>
                     <div class="flex flex-wrap pt-2">
                         <label for="address" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
                                aria-label="Address">Address</label>
-                        <input class="form-input w-full @error('address')  border-red-500 @enderror" size="4"
+                        <input class="form-input w-full @error('address')  border-red-500 @enderror"
                                id="address"
-                               type='text'>
+                               type='text' required>
                     </div>
                     <div class="flex flex-wrap pt-2">
                         <label for="city" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4" aria-label="city">City</label>
-                        <input class="form-input w-full @error('city')  border-red-500 @enderror" size="4" id="city"
-                               type='text'>
+                        <input class="form-input w-full @error('city')  border-red-500 @enderror" id="city"
+                               type='text' required>
                     </div>
                     <div class="flex flex-wrap pt-2">
                         <label for="post_code" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
-                               aria-label="post">Post
+                               aria-label="post code">Post
                             Code</label>
-                        <input class="form-input w-full @error('post_code')  border-red-500 @enderror" size="4"
+                        <input class="form-input w-full @error('post_code')  border-red-500 @enderror"
                                id="post_code"
-                               type='text'>
+                               type='text' required>
                     </div>
                     <div class="pb-5">
                         <div class="form-row ">
