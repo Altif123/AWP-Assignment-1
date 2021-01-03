@@ -64,7 +64,7 @@
                         </label>
 
                         <input id="review" type="text" aria-label="Review"
-                               class="form-input w-full @error('review') border-red-500 @enderror" name="review">
+                               class="form-input w-full @error('review') border-red-500 @enderror" name="review" required>
 
                         @error('review')
                         <p class="text-red-500 text-xs italic mt-4">
@@ -72,7 +72,7 @@
                         </p>
                         @enderror
 
-                        <div class="flex flex-wrap">
+                        <div class="flex flex-wrap mt-4">
                             <label for="rating" class="block pt-2 text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                                 {{ __('Add Rating') }}:
                             </label>

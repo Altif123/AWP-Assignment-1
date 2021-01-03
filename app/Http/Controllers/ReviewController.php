@@ -9,6 +9,7 @@ class ReviewController extends Controller
 {
     public function store(Request $request,$menuItem)
     {
+        $this->validateReview();
         Review::create([
             'menu_id' => $menuItem,
             'user_id' => auth()->user()->id,
@@ -24,5 +25,11 @@ class ReviewController extends Controller
         return redirect()->route('menu.index');
     }
 
-
+    protected function validateReview()
+    {
+        return request()->validate([
+            'review' => ['required', 'min:5','max:200','string'],
+            'rating' => ['required'],
+        ]);
+    }
 }
