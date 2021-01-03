@@ -13,9 +13,14 @@ class ContactController extends Controller
         return view('contact.contactForm');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $emailContents = $request;
+        $emailContents = request()->validate([
+            'name' => ['required', 'string', 'min:2', 'max:30'],
+            'email' => ['required', 'email', 'string'],
+            'subject' => ['required', 'string', 'min:5', 'max:50'],
+            'message' => ['required', 'min:5', 'max:500', 'string'],
+        ]);
         Mail::to('complaints@huddersfield-cafe.com')
             ->send(new ContactUs($emailContents));
 

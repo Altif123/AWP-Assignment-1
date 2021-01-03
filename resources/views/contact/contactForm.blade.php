@@ -88,7 +88,7 @@
                                name="subject" required autocomplete="subject" autofocus
                                placeholder=" subject goes here..." value="">
 
-                        @error('email')
+                        @error('subject')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
                         </p>
